@@ -14,10 +14,32 @@
 		\begin{enumerate}
 		\item Sea $T$ una relación refleja y simétrica. Demuestre que $T$ es Euclideana si, y solo si, $T$ es transitiva.\\
 		
-		Para probar esto...
-		\item Sea $T$ una relación refleja. Demuestre que $T$ es simétrica y transitiva si, y solo si, $T$ es1 Euclideana.\\
+		Dado que $T$ es simétrica, entonces para todo $(a,b) \in T$, $(b,a) \in T$, y como es refleja, entonces para todo $a\in A$ se cumple que $(a,a)\in T$.\\
+		Se pide demostrar que $T$ es Euclideana si, y solo si, $T$ es transitiva.\\
+		$(\Rightarrow)$\\
+		Suponemos $T$ Euclideana, entonces se cumple que $\forall a,b,c \in A$ se tiene 
+		$$ \left[(a,b)\in T\wedge(a,c) \in T\right]\rightarrow (b,c)\in T$$ 
+		como $T$ es simétrica se tiene:
+		$$ \left[(b,a)\in T\wedge(a,c) \in T\right]\rightarrow (b,c)\in T$$ 
+		Por lo que $T$ es transitiva.\\
+		$(\Leftarrow)$\\
+		Ahora suponemos $T$ transitiva, entonces se cumple que $\forall a,b,c \in A$ se tiene 
+		$$ \left[(a,b)\in T\wedge(b,c) \in T\right]\rightarrow (a,c)\in T$$ 
+		como $T$ es simétrica se tiene:
+		$$ \left[(b,a)\in T\wedge(b,c) \in T\right]\rightarrow (a,c)\in T$$ 
+		Por lo tanto $T$ es Euclideana.
 		
-		Para esto tomamos....
+		\item Sea $T$ una relación refleja. Demuestre que $T$ es simétrica y transitiva si, y solo si, $T$ es Euclideana.\\
+		
+		Dado que en la parte anterior se demostró que si $T$ es simétrica y transitiva, $T$ es Euclideana, solo realizaremos la demostración en el otro sentido.\\
+		$(\Leftarrow)$\\
+		Si $T$ es Euclideana se tiene que 
+		$\forall a,b,c \in A$:
+		$$ \left[(a,b)\in T\wedge(a,c) \in T\right]\rightarrow (b,c)\in T$$
+		Entonces también tendremos:
+		$$ \left[(a,c)\in T\wedge(a,b) \in T\right]\rightarrow (c,b)\in T$$
+		Por lo tanto $T$ es simétrica.\\
+		Como $T$ es simétrica y Euclideana, entonces $T$ también es transitiva por lo demostrado en la pregunta anterior.
 		\end{enumerate}
 		
 	\end{pregunta}
@@ -30,10 +52,36 @@
 		\begin{enumerate}
 		\item Demuestre que $R$ es refleja, antisimétrica y conexa.\\
 		
-		Para demostrar esto tenemos que ....
+		Para esto primero reescribiremos la definición de $R$:
+		$$(A,B)\in R \leftrightarrow \left(A\neq B \rightarrow \min\left((A\cup B)-(A \cap B)\right) \in A\right)$$ 
+		Notamos que en el caso de $A=B$ la implicancia se hace verdadera, y por lo tanto $(A,A)\in R$ para algún $A$, de la misma forma se cumple con $B$, por lo que para cualquier conjunto $A$, $(A,A)\in R$, por lo tanto $R$ es refleja.\\
+		
+		$R$ es antisimétrica por construcción, ya que dentro de de la función mínimo solo existirán elementos que sean solo de $A$ o solo de $B$, por lo que no puede pasar que $(A,B)\in R$ (o sea que el valor mínimo de los elementos distintos entre $A$ y $B$ pertenezca a $A$) y que al mismo tiempo $(B,A)\in R$ (que el valor mínimo de los elementos distintos entre $A$ y $B$ pertenezca a $B$), ya que ese mínimo solo pertenece a uno de los conjuntos, a menos que $A=B$, en ese caso si se cumple que $(A,B)\in R$ y $(B,A)\in R$, por lo enunciado en el paso anterior.\\
+\pagebreak		
+		Para probar que $R$ es conexa basta con tomar dos conjuntos de $\mathcal{N}$ cualquiera, como ambos son conjuntos finitos y distintos de $\emptyset$, para el caso en que sean iguales sabemos que $(A,B)\in R$ ya que probamos que $R$ es refleja, si son distintos entre ellos, tendrán un conjunto de elementos distintos con al menos un elemento, que pertenecerán a $A$ o $B$, pero no a ambos ($(A\cup B) - (A\cap B)$), como dicho conjunto está conformado por una cantidad finita de números naturales, este conjunto siempre tendrá un mínimo, que pertenecerá a $A$ o $B$, pero no a ambos, si suponemos que dicho mínimo pertenece a $A$, entonces se cumple $(A,B)\in R$ mientras que si el mínimo pertenece a $B$, entonces se cumple $(B,A)\in R$, lo que es equivalente a que:\\
+		\begin{figure}[h!]
+		\center
+		\begin{minipage}{4cm}
+		\center
+		$$\forall A,B \in \mathcal{N}$$
+		\end{minipage}
+		\begin{minipage}{4cm}
+		\center
+		 $$(A,B)\in R \vee (B,A) \in R$$
+		 \end{minipage}
+		 \end{figure}
+		 \\
+		 Por lo tanto $R$ es conexa.\\
 		\item Demuestre que $R$ es transitiva.\\
 		
-		Para demostrar esta parte ......
+		Esto quiere decir que se cumple que para todo $A, B, C\in \mathcal{N}$:
+		$$ \left[(A,B)\in R\wedge(B,C) \in R\right]\rightarrow (A,C)\in R$$
+		Lo demostraremos por contradicción, suponemos que se cumple 
+		$$ \left[(A,B)\in R\wedge(B,C) \in R\right]\rightarrow (A,C)\not\in R$$ 
+		para todo $A,B,C$\\
+		Ahora tomamos el caso $C=A$ y nos quedará:
+		$$ \left[(A,B)\in R\wedge(B,A) \in R\right]\rightarrow (A,A)\not\in R$$
+		pero eso es una contradicción, ya que $R$ es refleja, por lo tanto $R$ es transitiva.
 		\end{enumerate}
 	En otras palabra, $R$ es un orden total para el conjunto $\mathcal{N}$.
 	\end{pregunta}
