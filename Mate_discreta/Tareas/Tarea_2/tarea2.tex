@@ -1,0 +1,49 @@
+\documentclass[letter]{article}
+
+\usepackage{MD_estilo}
+
+\nombre{Luis Felipe Silva De Vidts} % Aqui va el nombre del alumno
+\numtarea{2} % Aqui va el número de la tarea
+
+
+\begin{document}
+	
+	\begin{pregunta}{1} % Aqui se coloca el número de la pregunta
+		\begin{enumerate}
+		\item Se pide explicar la formula de predicado $\alpha$ y su valor de verdad para los distintos dominios dados:
+		$$\alpha := \forall x.\forall y. \neg (y \preceq x)\vee (\forall z. z\preceq x\vee \neg (z\preceq y)) $$
+		Esta formula de predicado puede ser reescrita como:\\
+		
+		Por implicancia
+		\begin{equation}
+		\alpha\equiv \forall x.\forall y. [(y\preceq x)\rightarrow(\forall z. z\preceq x\vee \neg (z\preceq y))
+		\end{equation}
+		Por Conmutatividad
+		\begin{equation}
+		\alpha\equiv \forall x.\forall y. [(y\preceq x)\rightarrow(\neg (z\preceq y)\vee\forall z. z\preceq x)
+		\end{equation}  
+		Por implicancia
+		\begin{equation}				
+		\alpha\equiv \forall x.\forall y. [(y\preceq x)\rightarrow ((z\preceq y) \rightarrow (\forall z. z\preceq x))]
+		\end{equation}
+		Lo que es equivalente a decir que para todo $(x,y)$ pertenecientes al dominio de palabras y sub-palabras si $y$ es sub-palabra de $x$, entonces si $z$ es sub-palabra de $y$ se cumple que para todo $z$, $z$ es sub-palabra de $x$.\\
+		Que siempre es verdadera ya que si tenemos $x,y$ y se cumple que $y$ es sub-palabra de $x$, si tomamos un tercer elemento que sea sub-palabra de $y$ entonces, independiente de la sub-palabra de $y$ que se tome, este será sub-palabra de $x$, esto se cumple ya que la sub-palabra de $y$ es un subconjunto de $y$ , y como $y$ es sub-palabra de $x$, la sub-palabra de $y$ es sub-palabra de $x$.\\
+		
+		Para el caso de que el dominio sea el de palabras y prefijos, la conclusión es la misma ya que el dominio de las palabras y sub-palabras es un conjunto que contiene al dominio de las palabras y prefijos, esto porque todo prefijo $x$ es sub-palabra de $x$.\\
+		En otras palabras el caso en que el dominio sea el de palabras y prefijos es un caso particular de cuando el dominio es de palabras y sub-palabras, y como se cumple para todo $x,y$ en el dominio de sub-palabras y palabras, en particular se cumple para todo $x,y$ en el dominio de las palabras y sub-palabras.
+		\item Podemos tomar $\beta$ como:
+		$$\beta :=\forall x. \forall y. \forall z. ((y\preceq x)\wedge(z\preceq x))\rightarrow ((z\preceq y)\vee(y\preceq z)) $$
+		Notamos que esto significa para el dominio de palabras y prefijos que para cualquier trío de elementos, si dos son prefijos de un elemento en común, entonces estos son prefijos entre ellos de alguna forma.\\
+		Esto es cierto ya que al ser ambos prefijos, deben compartir el inicio hasta algún punto, lo que los hace prefijos entre si.\\
+		
+		Por otro lado $\beta$ no es verdadera para el dominio de palabras y sub-palabras, ya que se puede tomar dos sub-palabras que no compartan ningún elemento, por lo que no serán sub-palabras entre ellas.\\
+		Por ejemplo si $x = matematicas $, $y = mat$ y $ z = ic$, ambos son sub-palabras de $x$ pero entre ellos no hay ningún elemento común, por lo que no son sub-palabras en ningún sentido.
+		\end{enumerate}
+	\end{pregunta}
+	
+	\begin{pregunta}{2}
+		Aqui va la respuesta a la pregunta 2.
+		
+	\end{pregunta}
+
+\end{document}

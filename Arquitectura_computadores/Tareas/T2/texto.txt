@@ -1,0 +1,17 @@
+MOV B,0
+MOV (B), 3
+MOV B,1
+MOV (B), 4
+MOV B,2
+MOV (B), 0
+MOV B,3
+MOV (B), 0
+start: MOV A,(2)
+ADD A,(1)
+MOV (2),A
+MOV A,(3)
+ADD A,1
+MOV (3),A
+MOV B,(0)
+CMP A,B
+JLT start

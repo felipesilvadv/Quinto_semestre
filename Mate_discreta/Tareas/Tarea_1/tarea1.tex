@@ -1,0 +1,151 @@
+\documentclass[letter]{article}
+
+\usepackage{MD_estilo}
+\usepackage{enumerate}
+\usepackage{multirow}
+\nombre{Luis Felipe Silva De Vidts} % Aqui va el nombre del alumno
+\numtarea{1} % Aqui va el número de la tarea
+
+
+\begin{document}
+	
+	\begin{pregunta}{1} % Aqui se coloca el número de la pregunta
+		\section*{Pregunta 1}
+		\begin{enumerate}
+		\item ¿ Es verdad que si $\alpha \not\equiv \beta$, entonces $\alpha \equiv \neg \beta$? Demuestre o de un contraejemplo.\\
+		Para probar que no se cumple basta con tomar 
+		$$p\rightarrow q \not \equiv p $$
+		\begin{center}
+		\begin{tabular}{c c|c c c}
+		$p$& $q$ & $p \rightarrow q $& $p$&$\neg p$\\
+		\hline
+		$0$ &$0$ & $1$&$0$&$1$\\
+		$0$ &$1$ & $1$&$0$&$1$\\
+		$1$ &$0$ & $0$&$1$&$0$\\
+		$1$ &$1$ & $1$&$1$&$0$\\
+		\end{tabular}
+		\end{center}
+		Notamos que no se cumple:
+		$$p\rightarrow q \equiv \neg p $$
+		Por lo tanto no se cumple lo enunciado.
+		\item ¿ Es verdad que si $\Sigma \vDash \alpha$, entonces $\neg \alpha \vDash \neg \beta$ para cualquier fórmula $\beta$ en $\Sigma$? Demuestre o de un contraejemplo.\\
+		Para probar que no se cumple tomamos la consecuencia lógica $\Sigma \vDash \alpha$:
+		$$\{p,p \rightarrow q\} \vDash q$$
+		\begin{center}
+		\begin{tabular}{c c|c c|c}
+		$p$&$q$&$p$&$p\rightarrow q$&$q$ \\
+		\hline
+		$0$&$0$&$0$&$1$&$0$\\
+		$0$&$1$&$0$&$1$&$1$\\
+		$1$&$0$&$1$&$0$&$0$\\
+		$1$&$1$&$1$&$1$&$1$\\
+		\end{tabular}
+		\end{center}
+		Donde se cumple que cuando $p$ y $p\rightarrow q$ son verdaderos $q$ también lo es, por lo que $\alpha= q$ es consecuencia lógica de $\Sigma=\{p,p \rightarrow q\}$.\\
+		Del enunciado se debiese cumplir que:
+		$$\{\neg q\} \vDash \neg p$$
+		$$\{\neg q\} \vDash \neg(p\rightarrow q)$$
+		Al realizar la tabla de verdad obtenemos:
+		\begin{center}
+		\begin{tabular}{c c|c|c c}
+		$p$&$q$&$\neg q$&$\neg p$&$\neg(p\rightarrow q)$ \\
+		\hline
+		$0$&$0$&$1$&$1$&$0$\\
+		$0$&$1$&$0$&$1$&$0$\\
+		$1$&$0$&$1$&$0$&$1$\\
+		$1$&$1$&$0$&$0$&$0$\\
+		\end{tabular}
+		\end{center}
+		Por lo que no se cumple que 
+		$$\{\neg q\} \vDash \neg p$$
+		$$\{\neg q\} \vDash \neg(p\rightarrow q)$$
+		ya que hay casos en los que $\neg q$ es verdadero y $\neg p$ es falso o $\neg (p\rightarrow q)$ es falso.
+		\item Demuestre que una valuación $v_1,\dots, v_n$ hace verdadera a la fórmula:
+		$$(\cdots ((p_1 \leftrightarrow p_2)\leftrightarrow p_3) \dots \leftrightarrow p_n) $$
+		si, y solo si, el número de valores falsos en $v_1,\dots, v_n$ es par.\\
+		Para esto tomamos el caso $n=3$:
+		$$((p_1\leftrightarrow p_2)\leftrightarrow p_3)$$
+		y realizamos la tabla de verdad
+		\begin{center}
+		\begin{tabular}{c c c|c}
+		$p_1$&$p_1$&$p_1$&$((p_1\leftrightarrow p_2)\leftrightarrow p_3)$\\
+		\hline
+		$0$&$0$&$0$&$0$\\
+		$0$&$0$&$1$&$1$\\
+		$0$&$1$&$0$&$1$\\
+		$0$&$1$&$1$&$0$\\
+		$1$&$0$&$0$&$1$\\
+		$1$&$0$&$1$&$0$\\
+		$1$&$1$&$0$&$0$\\
+		$1$&$1$&$1$&$1$\\
+		\end{tabular}
+		\end{center}
+		Notamos que para este caso la expresión se vuelve verdadera si hay una cantidad par de ceros.\\
+		Si ahora definimos 
+		$$s_{1}=((p_1\leftrightarrow p_2)\leftrightarrow p_3)$$
+		y planteamos el caso $n=4$ de la forma 
+		$$s_{1}\leftrightarrow p_4$$
+		y formamos la tabla de verdad obtendremos
+		\begin{center}
+		\begin{tabular}{c c|c}
+		$s_1$&$p_4$&$s_{1}\leftrightarrow p_4$\\
+		\hline
+		$0$&$0$&$1$\\
+		$0$&$1$&$0$\\
+		$1$&$0$&$0$\\
+		$1$&$1$&$1$\\
+		\end{tabular}
+		\end{center}
+		Notamos que cuando $s_1$ toma el valor falso es porque hay una cantidad impar de ceros en dicha expresión, luego si $p_4$ es cero habrá una cantidad par de ceros por lo que la expresión $s_1\leftrightarrow p_4$ será verdadera.\\
+		Ahora para el caso genérico si tomamos la expresión
+		$$((s_{n-3}\leftrightarrow p_n)\leftrightarrow p_{n+1})$$
+		y suponemos que se cumple el que $s_{n-3}$ es verdadero si y solo si la cantidad de valores falsos es par, entonces realizamos la tabla de verdad correspondiente
+		\begin{center}
+		\begin{tabular}{c c c|c}
+		$s_{n-3}$&$p_n$&$p_{n+1}$&$((s_{n-3}\leftrightarrow p_{n})\leftrightarrow p_{n+1})$\\
+		\hline
+		$0$&$0$&$0$&$0$\\
+		$0$&$0$&$1$&$1$\\
+		$0$&$1$&$0$&$1$\\
+		$0$&$1$&$1$&$0$\\
+		$1$&$0$&$0$&$1$\\
+		$1$&$0$&$1$&$0$\\
+		$1$&$1$&$0$&$0$\\
+		$1$&$1$&$1$&$1$\\
+		\end{tabular}
+		\end{center}		
+		Donde de igual forma se cumple que si la suma de valores falsos es par la expresión final es verdadera, y no se cumple en ningún otro caso.
+		\end{enumerate}
+		
+	\end{pregunta}
+	
+	\begin{pregunta}{2}
+		\section*{Pregunta 2}
+		Sea $\alpha$ y $\beta$ dos formulas proposicionales tal que $\alpha \vDash \beta$. Demuestre que existe una formula $\gamma$ tal que $\alpha \vDash \gamma$, $\gamma \vDash \beta$ y $\gamma$ solo contiene variables mencionadas en $\alpha$ y $\beta$ simultáneamente.\\
+		Para eso primero probaremos que para que se cumpla $\alpha \vDash \beta$ estos deben tener elementos en común.\\
+		Si tomamos 
+		$$\alpha = \{\alpha_1,\dots,\alpha_n\}$$ con $$\alpha_i = \alpha_i(p,q),\forall i \in \{1,\dots,n\}$$ y $$\beta = \beta(w)$$
+		Al realizar la tabla de verdad obtendremos\\
+		\begin{center}
+		\begin{tabular}{c c c|c|c}
+		$p$&$q$&$w$&$\alpha$&$\beta$\\
+		\hline
+		$0$&$0$&$0$&\multirow{4}{*}{$A$}&\multirow{4}{*}{$B$}\\
+		$0$&$1$&$0$&&\\
+		$1$&$0$&$0$&&\\
+		$1$&$1$&$0$&&\\
+		\hline%\cline{4-5}
+		$0$&$0$&$1$&\multirow{4}{*}{$A$}&\multirow{4}{*}{$B'$}\\
+		$0$&$1$&$1$&&\\
+		$1$&$0$&$1$&&\\
+		$1$&$1$&$1$&&\\
+		\end{tabular}
+		\end{center}
+		Donde $A$ será una cadena de ceros y unos dependiente de $p$ y $q$, $B$ será una cadena de solo ceros o solo unos y $B'$ será la cadena opuesta a $B$ a menos que $\beta$ sea una contradicción o tautología, en ese caso $\alpha$ será una contradicción o una tautología y siempre se puede formar una tautología o contradicción $\gamma$ con los elementos que tengan en común ($p\vee \neg p$ y $p\wedge \neg p$, $0$ o $1$ en caso de no tener elementos en común).\\
+		
+		En los demás casos no se puede cumplir que $\alpha \vDash \beta$ a menos que tengan elementos comunes, ya que si hay una concordancia entre algún elemento de $A$ con uno de $B$, que ambos sean $1$ para alguna valuación, como $B$ y $B'$ son opuestos y $A$ se compara también con $B'$ si antes coincidían ahora no lo harán ya que $A$ seguirá teniendo un $1$ pero $B'$ tendrá un $0$. \\		
+		
+		Ahora como la consecuencia lógica viene dada solo por lo elementos comunes de ambos, $\alpha$ puede tener como consecuencia lógica a alguna proposición que este formada por elementos de $\alpha$ y $\beta$ y está a su vez tenga como consecuencia lógica a $\beta$ ya que tienen elementos en común. Para encontrarla basta realizar un DNF para obtener los valores de $1$ donde $\alpha$ y $\beta$ coinciden y eliminar las demás variables de las que no dependen simultáneamente $\alpha$ y $\beta$. 
+	\end{pregunta}
+
+\end{document}
