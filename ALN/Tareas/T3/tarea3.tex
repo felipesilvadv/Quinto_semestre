@@ -86,12 +86,83 @@ $$A_2 =
 \\
 ¿Para qué valores de $a$ y $\epsilon$ las matrices anteriores están mal condicionadas?
 \subsection*{Pregunta 6}
-
+Si dada $A \in \mathbb{R}^{n\times n}$. Muestre que si $\lambda$ es autovalor de $A^{T}A$ entonces $0\leq \lambda\leq ||A^{T}|| ||A||$.\\
+Demuestre que si $A$ es no singular
+$$k_2(A) \leq \sqrt{k_1(A)k_\infty(A)} $$
 \subsection*{Pregunta 7}
+Suponga $A \in \mathbb{R}^{n\times n}$ definida como
+$$A =
+\begin{bmatrix}
+1&0&0&\cdots &0\\
+1&1&0&\cdots &0\\
+1&0&1&\cdots &0\\
+\vdots&\vdots&\vdots&\ddots& 0\\
+1&0&0&\cdots &1\\
+\end{bmatrix}_{n\times n}
+$$
+Demuestre que $\lambda =1$ es autovalor de $A^{T}A$ con $x = (x_1, x_2, \cdots, x_n)\in \R^n$ autovector asociado tal que $x_1 = 0$ y $\sum_{i=2}^{n}x_i = 0$. Muestre que existen otros dos autovectores tales que $x_2 = \cdots = x_n$ y encuentre los autovalores asociados. Demuestre que:
+$$ k_2(A) = \frac{1}{2}(n+1)\left(1+\sqrt{1-\frac{4}{(n+1)^{2}}}\right)$$
+{\bf Note que} Para esta matriz el número de condición $2$ está relacionado con el tamaño de la matriz $A$.
 \subsection*{Pregunta 11}
+Considere el SEL $Ax=b$, donde $A \in \mathbb{R}^{n\times n}$ es una matriz dada de elementos $a_{ij}$ tales que $a_{ii} \neq 0$ para todo $i$ y $b\in \R^{n}$ es un vector dado. Considere la sucesión de vectores $\left\lbrace x^{(k)}\right\rbrace$ definida mediante el siguiente algoritmo\\
+\begin{figure}[h!]
+\hrule
+\vspace{1mm}
+{\bf Algoritmo 1 }Método iterativo
+\hrule
+\vspace{1mm}
+Dados $x^{(0)}\in \R^{n}$, $tol \in \R^+$ y $max \in \mathbb{Z}^+$
+\begin{enumerate}[1:]
+\item {\bf for} $k=0,1,\dots,max$ {\bf do}
+\item \hspace{5mm} $r^{(k)}=b-Ax^{(k)}$
+\item \hspace{5mm} Sea $i$ tal que $|r_{i}^{(k)}|=\max_{1\leq j \leq n}|r_{j}^{(k)}|=||r^{(k)}||_{\infty}$
+\item \hspace{5mm} {\bf if} $||r^{(k)}||_{\infty}\leq tol$ {\bf then}
+\item \hspace{10mm} Return
+\item \hspace{5mm} {\bf end if}
+\item \hspace{5mm} $x_{j}^{(k+1)}=x_{j}^{(k)}$\hspace{2mm}  $\forall j\neq i$\hspace{20mm} $\triangleright$ Definición de $x^{(k+1)}$
+\item \hspace{5mm} $x_{i}^{(k+1)} = x_{i}^{(k)}+\frac{r_{i}^{(k)}}{a_{ii}}$\hspace{22.5mm} $\triangleright$ Definición de $x^{(k+1)}$
+\item {\bf end for}
+\end{enumerate}
+\vspace{1mm}
+\hrule
+\end{figure}
+\begin{itemize}
+\item Demuestre que si $a_i$ denota la i-ésima columna de $A$.
+$$ r^{(k+1)} = r^{(k)}-\frac{r_{i}^{(k)}}{a_{ii}}a_i$$
+\item Demuestre que:
+$$||r^{(k+1)}||_1 \leq \left[1-\frac{1}{n}+ \sum_{j=1,j\neq i}^{n}\left|\frac{a_{ji}}{a_{ii}}\right| \right] ||r^{(k)}||_1 $$
+{\bf Ayuda:} $||x||_{\infty}\leq ||x||_1 \leq n||x||_{\infty}$ para todo $x\in \R^{n}$
+\item Deduzca una condición suficiente de convergencia para que la sucesión $\left\lbrace x^{(k)}\right\rbrace$ converja a la solución de $Ax = b$.
+\end{itemize}
 \subsection*{Pregunta 15}
+Suponga que quiere resolver el SEL $Cz = d$ con $C\in \mathbb{C}^{m\times m}$ y $d\in \mathbb{C}^{m}$ pero usted sólo tiene rutinas que trabajan con reales. Si $C = A + iB, d = b + ic$ donde $A,B,b$ y $c$ son reales. Muestre que la solución $z = x+iy$ está dada por la solución del SEL (real):
+$$
+\begin{bmatrix}
+A&-B\\
+B&A
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+b\\
+c
+\end{bmatrix}
+$$
+¿Cómo resolvería el SEL anterior sin armar la matriz de coeficientes de orden $m^{2}$?
 \section*{Parte Práctica}
 \subsection*{Pregunta 16}
+Escriba dos rutinas para clacular para calcular $C=AB$ con $A \in \R^{m\times n}$ y $B\in \R^{n\times p}$. La primera debe calcular cada elemento de $C$ mediante productos internos de las fila de $A$ con las columnas de $B$. La segunda debe formar cada columna de $C$ mediante combinaciones lineales de las columnas de $A$. Compare sus rutinas en su computador. Es probable que necesite usar matrices grandes antes de observar alguna diferencia importante. Trate de encontrar información sobre el sistema de su computador (cache, política de manejo de la memoria) para tratar de explicar los resultados observados.
 \subsection*{Pregunta 19}
+Repita el Ejemplo numérico de las páginas 300-301 del Libro Trefethen and Bau.
 \subsection*{Pregunta 20}
+{\bf Ejercicio didáctico para observar velocidad de convergencia de GC:} Considere las matrices $A_1$ y $A_2$ ambas simétricas positivo definidas de orden $n$ tales que los autovalores de $A_1$ están distribuidos uniformemente en $[0.95, 1.05]$ mientras que los de $A_2$ son $[100,200, 300, 400, 500]$ y los $n-5$ restantes están uniformemente distribuidos en $[0.95, 1.05]$.\\
+Constuya los vectores $b_1$ y $b_2$ tales que los sistemas $A_1x=b_1$ y $A_2y=b_2$ tengan como solución el vector de unos.\\
+\begin{itemize}
+\item Ejecute CG don diferentes valores de $n$
+\item Grafique el error relativo y el residual por iteración para ambos SEL.
+\item Compare y comente los resultados. Use los resultados vistos en clases para justificar sus observaciones.
+\end{itemize}
 \end{document}
