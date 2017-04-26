@@ -12,8 +12,54 @@
 		\section*{Pregunta 1}
 		Para un conjunto $A$, sea $R_1$ y $R_2$ dos relaciones de equivalencia.
 		\begin{enumerate}
-		\item Demuestre que $R_1 \cap R_2$ es una relación de equivalencia.
-		\item Demuestre que si $R_1 \circ R_2=R_2 \circ R_1 $ , entonces $R_1 \circ R_2$ es una relación de equivalencia.
+		\item Demuestre que $R_1 \cap R_2$ es una relación de equivalencia.\\
+		
+		Para demostrar esto basta con probar que la intersección de:
+		\begin{itemize}
+		\item Dos relaciones reflejas es refleja.\\
+		
+		Esto será verdad si 
+		$$\forall a\in A. (a,a) \in R_1 \cap R_2$$
+		
+		como $R_1$ es refleja y $R_2$ es refleja se cumple 
+		$$\forall a\in A. [(a,a) \in R_1]$$
+		$$\forall a\in A. [(a,a) \in R_2]$$
+		entonces como $\forall a\in A$, $(a,a)$ pertenece	$R_1$ y a $R_2$ simultáneamente, entonces $(a,a)$ está en la intersección de ambas relaciones.\\
+		En otras palabras 
+		$$\forall a \in A. [(a,a)\in R_1 \wedge (a,a)\in R_2]\equiv \forall a\in A.[(a,a)\in R_1\cap R_2]$$
+		\item Dos relaciones simétricas es simétrica.\\
+		
+		Esto es cierto si se cumple
+		$$\forall a,b  \in A. [(a,b)\in R_1\cap R_2 \Leftrightarrow (b,a)\in R_1\cap R_2] $$
+		Tenemos que se cumple 
+		$$\forall a,b  \in A. [(a,b)\in R_1 \Leftrightarrow (b,a)\in R_1] $$
+		$$\forall a,b  \in A. [(a,b)\in R_2 \Leftrightarrow (b,a)\in R_2] $$
+		Entonces como todo elemento de $R_1$ cumple con lo anterior y al mismo tiempo todo elemento de $R_2$ también, los elementos en común cumplirán con ser simétricos.\\
+		En otras palabras
+		$$\forall a,b  \in A. [(a,b)\in R_1 \Leftrightarrow (b,a)\in R_1]\wedge [(a,b)\in R_2 \Leftrightarrow (b,a)\in R_1]$$$$\equiv$$ $$\forall a,b \in A. [(a,b)\in R_1 \cap R_2\Leftrightarrow (b,a)\in R_1\cap R_2]$$
+		\item Dos relaciones transitivas es transitiva.\\
+		
+		Esto es equivalente a probar
+		$$\forall a,b,c\in A. [(a,b)\in R_1\cap R_2 \wedge (b,c)\in R_1\cap R_2] \rightarrow (a,c)\in R_1\cap R_2$$
+		Como $R_1$ y $R_2$ son transitivas, entonces:
+		$$\forall a,b,c\in A. [(a,b)\in R_1\wedge (b,c)\in R_1] \rightarrow (a,c)\in R_1$$
+		$$\forall a,b,c\in A. [(a,b)\in R_2 \wedge (b,c)\in R_2] \rightarrow (a,c)\in R_2$$
+		Como todos los pares que pertenecen a $R_1$ y a $R_2$ cumplen con lo anterior, en particular los que están en ambos también lo cumplirán.\\
+		
+		En otras palabras:
+		$$\forall a,b,c \in A. [(a,b)\in R_1 \wedge (a,b)\in R_2 \wedge (b,c)\in R_1 \wedge (b,c)\in R_2]\rightarrow [(a,c)\in R_1 \wedge (a,c) \in R_2]$$
+		$$\equiv$$
+		$$\forall a,b,c\in A. [(a,b)\in R_1\cap R_2 \wedge (b,c)\in R_1\cap R_2] \rightarrow (a,c)\in R_1\cap R_2$$
+		\end{itemize}
+		Como $R_1$ y $R_2$ son relaciones de equivalencia cumplen con los tres puntos anteriores, lo que implica que su intersección también lo cumple, lo que hace que $R_1\cap R_2$ sea una relación de equivalencia.
+		\item Demuestre que si $R_1 \circ R_2=R_2 \circ R_1 $ , entonces $R_1 \circ R_2$ es una relación de equivalencia.\\
+		
+		Para esto suponemos que se cumple $R_1 \circ R_2=R_2\circ R_1$ y que $R_1 \circ R_2$ no es una relación de equivalencia.\\
+		Pero dado lo primero sabemos que se cumple 
+		$$\forall a,b \in A. [(a,b)\in R_1\circ R_2 \Leftrightarrow (a,b)\in R_2\circ R_1]$$
+		Y en particular se cumple que para todo $a\in A$:
+		$$(a,a)\in R_1\circ R_2$$
+		Pero eso es una contradicción ya que si $R_1\circ R_2$ no es una relación de equivalencia, ésta no puede ser refleja.
 		\end{enumerate}
 		
 	\end{pregunta}
