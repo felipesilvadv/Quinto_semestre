@@ -56,14 +56,14 @@ def mostrar(path):
         for i in range(len(file)):
             file[i] = file[i].split(" ")
             file[i][1] = file[i][1].split(",")
-            file[i][1][0], file[i][1][1] = int(file[i][1][0]),int(file[i][1][1])
+            file[i][1][0], file[i][1][1] = int(file[i][1][0]), int(file[i][1][1])
             aux = file[i].pop()
             for elem in aux:
                 file[i].append(elem)
             arch = open(os.getcwd()+"\\15635570.txt", "a")
             arch.write(str(elem)+" " for elem in file)
             arch.write(str(convertir_float(*file[i]))+"\n")
-        arch.close()
+            arch.close()
 
 if __name__ == "__main__":
     while True:  # No entendi a que se referia con $ python {n° alumno}.py archivo.txt pero aqui solo basta

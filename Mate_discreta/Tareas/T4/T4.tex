@@ -54,12 +54,36 @@
 		Como $R_1$ y $R_2$ son relaciones de equivalencia cumplen con los tres puntos anteriores, lo que implica que su intersección también lo cumple, lo que hace que $R_1\cap R_2$ sea una relación de equivalencia.
 		\item Demuestre que si $R_1 \circ R_2=R_2 \circ R_1 $ , entonces $R_1 \circ R_2$ es una relación de equivalencia.\\
 		
-		Para esto suponemos que se cumple $R_1 \circ R_2=R_2\circ R_1$ y que $R_1 \circ R_2$ no es una relación de equivalencia.\\
-		Pero dado lo primero sabemos que se cumple 
-		$$\forall a,b \in A. [(a,b)\in R_1\circ R_2 \Leftrightarrow (a,b)\in R_2\circ R_1]$$
-		Y en particular se cumple que para todo $a\in A$:
-		$$(a,a)\in R_1\circ R_2$$
-		Pero eso es una contradicción ya que si $R_1\circ R_2$ no es una relación de equivalencia, ésta no puede ser refleja.
+		Por definición de composición, tenemos  que para todo $a,b\in A$
+		$$((a,b)\in R_1\circ R_2) \Leftrightarrow (\exists c \in A. [(a,c)\in R_1 \wedge (c,b)\in R_2])$$
+		Por lo que si tomamos el caso $a=b$, quedará:
+		$$((a,a)\in R_1\circ R_2) \Leftrightarrow (\exists c \in A. [(a,c)\in R_1 \wedge (c,a)\in R_2])$$
+		y como $R_1$ y $R_2$ son reflejas sabemos que $c=a$ cumple con lo anterior\\
+$\therefore R_1\circ R_2$ es refleja.\\
+		
+		Por otro lado notamos que $R_1 = R_1^{-1}$ y $R_2 = R_2^{-1}$, ya que son simétricas, y en ambos casos ($\forall i \in \{1,2\}$) se cumple que 
+		$$R_i = R_i^{-1}\Leftrightarrow R_i\circ R_i = I_A$$
+		Ahora notamos que $R_1\circ R_2$ es transitiva si, y solo si:
+		$$(R_1\circ R_2)\circ (R_1\circ R_2)\subseteq R_1\circ R_2$$
+		Por enunciado $R_1\circ R_2 =R_2\circ R_1$, entonces
+		$$(R_1\circ R_2)\circ (R_2\circ R_1)\subseteq R_1\circ R_2$$
+		por asociatividad de la composición
+		$$R_1\circ (R_2\circ R_2)\circ R_1\subseteq R_1\circ R_2$$
+		Por lo probado hace dos pasos 
+		$$R_1\circ (I_A)\circ R_1\subseteq R_1\circ R_2$$
+		Al componer con la identidad se obtiene la relación misma
+		$$R_1\circ R_1\subseteq R_1\circ R_2$$
+		Por lo demostrado anteriormente
+		$$I_A \subseteq R_1\circ R_2$$
+		Esto último es cierto ya que $R_1\circ R_2$ es refleja. \\
+		Por lo tanto $R_1\circ R_2$ es transitiva, pero además es simétrica ya que 
+		$$ (R_1\circ R_2)\circ (R_2\circ R_1)=I_A$$
+		Lo que implica que 
+		$$R_1\circ R_2 = (R_1\circ R_2)^{-1}$$
+		Por lo tanto es simétrica.\\
+		
+		Finalmente como $R_1\circ R_2$ es refleja, simétrica y transitiva, entonces es una relación de equivalencia.
+		
 		\end{enumerate}
 		
 	\end{pregunta}
