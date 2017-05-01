@@ -93,6 +93,40 @@ Si dada $A \in \mathbb{R}^{n\times n}$. Muestre que si $\lambda$ es autovalor de
 % Tomar definición de valor propio, mover normas y tomar supremo para dar la desigualdad, preguntar si no debiese ser norma en vez de lambda solo.
 Demuestre que si $A$ es no singular
 $$k_2(A) \leq \sqrt{k_1(A)k_\infty(A)} $$
+
+Primero mostramos la primera parte del enunciado, como $\lambda$ es valor propio de $A^{T}A$, entonces:
+$$A^{T}Av = \lambda v, v\neq 0$$
+Luego tomamos norma en ambos lados de la igualdad
+$$||A^{T}Av|| = |\lambda|* ||v||$$
+$$|\lambda|=\frac{||A^{T}Av||}{||v||}\leq \sup_{v\neq 0} \frac{||A^{T}Av||}{||v||}$$
+Por definición de norma matricial nos queda
+$$|\lambda|\leq \sup_{v\neq 0} \frac{||A^{T}Av||}{||v||}= ||A^{T}A||$$
+Ahora por desigualdad de normas matriciales
+$$|\lambda|\leq ||A^{T}A||\leq ||A^{T}||*||A||$$
+con esto obtenemos la cota por arriba, pero para mostrar que $0\leq\lambda$, probaremos que $A^{T}A$ es semi-positiva definida.
+Enonces tenemos que probar que se cumpla
+$$ x^{T}A^{T}Ax\geq 0$$
+para todo $x\neq 0$, para eso basta con tomar el vector $v = Ax$, luego tenemos que:
+$$ x^{T}A^{T}Ax=v^{T}v$$
+eso es equivalente a la norma de $v$ y la norma de cualquier vector es positiva o cero, $v$ puede ser cero ya que no sabemos si $A$ es de rango completo.\\
+$\therefore A^{T}A$ es semi-positiva definida.\\
+Entonces se cumple la desigualdad
+$$0\leq \lambda\leq ||A^{T}||*||A||$$
+Ahora para demostrar el segundo punto citaré unas verdades vistas en el curso de cálculo científico:
+\begin{equation}
+ K_1(A)\leq nK_2(A)
+\end{equation}
+\begin{equation}
+K_2(A)\leq nK_{\infty}(A)
+\end{equation}
+Teniendo esas verdades es claro que se cumple
+\begin{equation}
+K_2(A)\leq \frac{1}{n}K_1(A)
+\end{equation}
+al multiplicar $(2)$ con $(3)$
+nos queda 
+$$K_2(A)^{2}\leq K_1(A)*K_{\infty}(A)$$
+$$K_2(A)\leq \sqrt{K_1(A)*K_{\infty}(A)}$$
 \subsection*{Pregunta 7}
 Suponga $A \in \mathbb{R}^{n\times n}$ definida como
 $$A =
