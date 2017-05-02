@@ -140,7 +140,170 @@ $$A =
 $$
 Demuestre que $\lambda =1$ es autovalor de $A^{T}A$ con $x = (x_1, x_2, \cdots, x_n)\in \R^n$ autovector asociado tal que $x_1 = 0$ y $\sum_{i=2}^{n}x_i = 0$. Muestre que existen otros dos autovectores tales que $x_2 = \cdots = x_n$ y encuentre los autovalores asociados. Demuestre que:
 $$ k_2(A) = \frac{1}{2}(n+1)\left(1+\sqrt{1-\frac{4}{(n+1)^{2}}}\right)$$
-{\bf Note que} Para esta matriz el número de condición $2$ está relacionado con el tamaño de la matriz $A$.
+{\bf Note que} Para esta matriz el número de condición $2$ está relacionado con el tamaño de la matriz $A$.\\
+
+Primero podemos ver que $\lambda=1$ es valor propio de $A^{T}A$ ya que si tomamos el vector 
+$$v=
+\begin{bmatrix}
+0\\
+\alpha_1\\
+\vdots\\
+\alpha_{n-1}
+\end{bmatrix}
+$$
+también tenemos que:
+\footnote{Lo calcule en Octave}
+$$A^{T}A = 
+\begin{bmatrix}
+n&1&1&\cdots&1\\
+1&1&0&\cdots&0\\
+1&0&1&\cdots&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+1&0&0&\cdots&1\\
+\end{bmatrix} $$
+Ahora si multiplicamos $A^{T}A$ con el vector $v$, nos quedará:
+$$
+\begin{bmatrix}
+n&1&1&\cdots&1\\
+1&1&0&\cdots&0\\
+1&0&1&\cdots&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+1&0&0&\cdots&1\\
+\end{bmatrix}
+\begin{bmatrix}
+0\\
+\alpha_1\\
+\alpha_2\\
+\vdots\\
+\alpha_{n-1}
+\end{bmatrix}
+=
+\begin{bmatrix}
+0* n + \sum_{i=1}^{n-1}\alpha_i\\
+\alpha_1\\
+\alpha_2\\
+\vdots\\
+\alpha_{n-1}
+\end{bmatrix}
+=
+\begin{bmatrix}
+0\\
+\alpha_1\\
+\alpha_2\\
+\vdots\\
+\alpha_{n-1}
+\end{bmatrix}
+$$
+La última igualdad se cumple porque la suma de los $\alpha_i$ es igual a $0$, por enunciado y como se cumple la igualdad anterior, $\lambda=1$ es valor propio de la matriz $A^{T}A$.\\
+
+Ahora tenemos que buscar los vectores que cumplan con ser vectores propios de la matriz $A^{T}A$ con la condición de que todas sus componentes exceptuando la primera son iguales para eso ahora tomamos el vector:
+$$u=
+\begin{bmatrix}
+x\\
+y\\
+y\\
+\vdots\\
+y
+\end{bmatrix}
+$$
+luego al multiplicarlo por la matriz $A^{T}A$ nos quedará:
+$$
+\begin{bmatrix}
+n&1&1&\cdots&1\\
+1&1&0&\cdots&0\\
+1&0&1&\cdots&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+1&0&0&\cdots&1\\
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y\\
+y\\
+\vdots\\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+nx + (n-1)y\\
+x+y\\
+x+y\\
+\vdots\\
+x+y
+\end{bmatrix}
+$$
+queremos que $u$ sea vector propio por lo que necesitamos que se cumplan las siguientes igualdades:
+\begin{equation}
+nx + (n-1)y = \lambda x
+\end{equation}
+\begin{equation}
+x+y = \lambda y
+\end{equation}
+donde $\lambda$ sería el valor propio asociado, ahora despejamos $\lambda$ de ambas ecuaciones y obtenemos al igualdad:
+$$\frac{nx + (n-1)y}{x} = \frac{x+y}{y}$$
+que al desarrollar obtenemos la ecuación cuadrática en $x$
+$$0 = x^{2}+(1-n)yx +(1-n)y^{2}$$
+cuya solución para $x$ será:
+$$x = \frac{-(1-n)y \pm \sqrt{(1-n)^{2}y^{2}-4(1-n)y^{2}}}{2}$$
+$$x = y*\left(\frac{(n-1) \pm \sqrt{(n-1)^{2}+4(n-1)}}{2}\right)$$
+Por lo que tendremos dos vectores propios a partir de esto, ya que ahora $u$ puede ser con $x$ igual a la solución con $+$ o a la solución con $-$, lo que nos dará los dos vectores propios que buscabamos, para encontrar los valores propios correspondientes basta con reemplazar en la ecuación $(5)$ y obtendremos:
+$$ y*\left(\frac{(n-1) \pm \sqrt{(n-1)^{2}+4(n-1)}}{2}\right) + y = \lambda * y$$
+entonces 
+$$\lambda = \frac{(n-1) \pm \sqrt{(n-1)^{2}+4(n-1)}}{2} + 1$$
+donde cada valor propio le corresponde a cada vector propio según la suma o resta de la raíz de la expresión.\\
+
+Por último demostraremos la igualdad:
+$$ k_2(A) = \frac{1}{2}(n+1)\left(1+\sqrt{1-\frac{4}{(n+1)^{2}}}\right)$$
+Sabemos que el $K_2(A)$ es equivalente al valor del mayor valor propio de $A^{T}A$, por lo que buscaremos sus valores propios por definición y analizaremos cual es el mayor. Para eso vemos la siguiente matriz:
+$$A^{T}A-\lambda I = 
+\begin{bmatrix}
+n-\lambda&1&1&\cdots&1\\
+1&1-\lambda&0&\cdots&0\\
+1&0&1-\lambda&\cdots&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+1&0&0&\cdots&1-\lambda\\
+\end{bmatrix}
+$$
+al calcular el determinante de esa matriz lo haremos por cofactores y lo haremos usando la primera fila para ir formando los cofactores, por lo que el primer sumando será:
+$$(n-\lambda)*(1-\lambda)^{n-1}$$
+luego
+el segundo cofactor será:
+$$ -1*\left|\begin{matrix}
+1&0&0&\cdots&0\\
+1&1-\lambda&0&\cdots&0\\
+1&0&1-\lambda&\cdots&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+1&0&0&\cdots&1-\lambda\\
+\end{matrix}\right|
+=
+-1*1*(1-\lambda)^{n-2}$$
+el tercer cofactor seŕa:
+$$ 1*\left|\begin{matrix}
+1&1-\lambda&0&\cdots&0\\
+1&0&0&\cdots&0\\
+1&0&1-\lambda&\cdots&0\\
+\vdots&\vdots&\vdots&\ddots&\vdots\\
+1&0&0&\cdots&1-\lambda\\
+\end{matrix}\right|
+=
+1*-1*(1-\lambda)^{n-2}$$
+en este caso el $-1$ es porque al tomar el determinante de la submatriz tomamos una posición impar, por lo que se multiplica por $-1$.  El resto de cofactores es de la misma forma y siempre se obtiene el mismo resultado, ya que si el $-1$ no viene dado por la posición del cofactor al principio, lo tendrá el de la posición al seguir calculando cofactores.  Por lo tanto el determinante general quedará de la forma
+$$(n-\lambda)*(1-\lambda)^{n-1}-(n-1)*(1-\lambda)^{n-2}$$
+Como queremos los valores propios debemos igualarlo a $0$, entonces
+$$(n-\lambda)*(1-\lambda)^{n-1}-(n-1)*(1-\lambda)^{n-2}=0$$
+si factorizamos por $(1-\lambda)^{n-2}$ y desarollamos llegaremos a la igualdad:
+$$(1-\lambda)^{n-2}*(\lambda^{2}-(n+1)\lambda +1)=0$$
+Por lo que $\lambda =1 $ es valor propio con multiplicidad $n-2$ y la solución de la ecuación cuadrática nos dará los otros dos valores propios:
+$$\lambda^{2}-(n+1)\lambda +1=0$$
+que tiene como soluciones:
+$$\lambda = \frac{n+1\pm\sqrt{(n+1)^{2}-4}}{2}$$
+Notamos que si $n\ge 2$ la raíz es mayor a cero, por lo que en el caso de la resta de la raíz estaremos obteniendo un valor menor que con la suma. (si $n=1$, caso real, $\lambda = 1$, lo que es consistente con lo anterior, ya que tiene al menos un valor propio igual a $1$). Por lo que tomaremos la solución con la suma, ya que buscamos el valor propio mayor.\\
+Ahora si desarrollamos la expresión anterior, factorizando $(n+1)^{2}$ en la raíz tendremos:
+$$\lambda_{\max} = \frac{(n+1)+\sqrt{(n+1)^{2}\left(1-\frac{4}{(n+1)^{2}}\right)}}{2}$$
+luego
+$$\lambda_{\max} = \frac{(n+1)+(n+1)\sqrt{\left(1-\frac{4}{(n+1)^{2}}\right)}}{2}$$
+$$\lambda_{\max} = \frac{1}{2}(n+1)\left(1+\sqrt{1-\frac{4}{(n+1)^{2}}}\right)$$
+Como $\lambda_{\max}$  es el mayor valor propio de $A^{T}A$, es equivalente a $K_2(A)$
+$$\therefore K_2(A) = \frac{1}{2}(n+1)\left(1+\sqrt{1-\frac{4}{(n+1)^{2}}}\right)$$
 \subsection*{Pregunta 11}
 Considere el SEL $Ax=b$, donde $A \in \mathbb{R}^{n\times n}$ es una matriz dada de elementos $a_{ij}$ tales que $a_{ii} \neq 0$ para todo $i$ y $b\in \R^{n}$ es un vector dado. Considere la sucesión de vectores $\left\lbrace x^{(k)}\right\rbrace$ definida mediante el siguiente algoritmo\\
 \begin{figure}[h!]
