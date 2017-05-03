@@ -95,9 +95,23 @@ $\therefore R_1\circ R_2$ es refleja.\\
 		Considere el conjunto $\mathcal{S}_R=\{[a]_R|a\in A\}$ y responda las siguientes preguntas.
 		\begin{enumerate}
 		\item Si $R$ es una relación refleja y $\mathcal{S}_R$ es una partición de $A$, ¿és $R$ una relación de equivalencia?\\
-		Demuestre o de un contra-ejemplo.
+		Demuestre o de un contra-ejemplo.\\
+		
+		La respuesta es que si, ya que si es refleja solo basta probar que $R$ es simétrica y transitiva.\\
+		
+		Para eso notamos que si $\mathcal{S}_R$ es partición entonces si $b \in [a]_R$ entonces $a \in [b]_R$ que es lo mismo que la relación es simétrica.\\
+		
+		Mientras que si $c \in [b]_R$ y $b\in [a]_R$ entonces $c\in [a]_R$ ya que $\mathcal{S}_R$ es partición, lo que significa que si un par de elementos están relacionados entre si entonces todos los que estén relacionados con el segundo estarán con el primero, ya que no pueden pertenecer a dos clases distintas.\\
+		
+		Por lo tanto tiene que ser transitiva y por tanto $R$ es una relación de equivalencia.
 		\item Si $R$ es una relación simétrica y $\mathcal{S}_R$ es una partición de $A$, ¿és $R$ una relación de equivalencia?\\
-		Demuestre o de un contra-ejemplo.
+		Demuestre o de un contra-ejemplo.\\
+		
+		Un contra-ejemplo a esto es tomar el conjunto $A = \{1,2\}$ y la relación $R = \{(a,b)| a\neq b\}$ donde $\neq$ es el distinto a de los números naturales, esta relación es simétrica ya que $\forall (a,b)\in N$.  $(a,b)\in R \leftrightarrow (b,a)\in R$ para este caso particular también se cumple ya que $1 \neq 2$ si, y solo si $2\neq 1$.\\
+		
+		Por otro lado el conjunto $\mathcal{S}_{R}$ es una partición ya que $[1]_R=\{2\}$ y $[2]_R=\{1\}$ la unión forma el conjunto $A$ y son claramente disjuntos. Pero esta relación no es refleja, ya que $(1,1)\notin R$.\\
+		
+		Por lo tanto $R$ no es una relación de equivalencia.
 		\end{enumerate}
 		
 	\end{pregunta}
