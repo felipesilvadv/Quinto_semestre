@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.17)  3 MAY 2017 02:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.17)  7 MAY 2017 02:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -801,40 +801,95 @@ Overfull \hbox (13.88782pt too wide) in paragraph at lines 46--57
 []$[]$ $[]$ 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--88
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
+
+ []
+
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./figures/LogoUC-BN.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 142--144
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 196--198
+ <./figures/LogoUC-BN.pdf>] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 168--170
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--253
+Underfull \hbox (badness 10000) in paragraph at lines 222--224
 
  []
 
-[3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 362--364
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 277--279
 
  []
 
-[6] (./tarea3.aux
+[4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 395--397
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 442--444
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 453--455
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 474--475
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--479
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 484--486
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 489--490
+
+ []
+
+[10] (./tarea3.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
  7135 strings out of 493029
  100053 string characters out of 6136234
- 192814 words of memory out of 5000000
+ 195814 words of memory out of 5000000
  10539 multiletter control sequences out of 15000+600000
  10557 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,12n,42p,639b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,12n,42p,641b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/te
@@ -849,12 +904,13 @@ cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on tarea3.pdf (6 pages, 232168 bytes).
+Output written on tarea3.pdf (10 pages, 243908 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 67 compressed objects within 1 object stream
+ 112 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

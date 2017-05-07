@@ -85,9 +85,35 @@ $$A_2 =
 \end{figure}
 \\
 ¿Para qué valores de $a$ y $\epsilon$ las matrices anteriores están mal condicionadas?\\
-Para $a\approx 1$ y para $\epsilon \approx 0$
-%Encontrar la formula para calcular el número de condición de A_1 y A_2
-%NO PUEDE QUEDAR COMO ESTA
+
+Si calculamos el número de condición en norma infinito de las matrices anteriores, tenderemos, para $A_1$:
+$$A_{1}^{-1} =
+\begin{bmatrix}
+1 & -a\\
+-a & 1
+\end{bmatrix}
+*\frac{1}{1-a^{2}}
+$$
+luego tenemos que las normas de las matrices serán:
+$$||A_1||_{\infty} = 1 + a$$
+$$||A_{1}^{-1}||_{\infty} = \frac{1+a}{1-a^{2}} $$
+Por lo que el el condicionamiento de $A_1$ en norma infinito será:
+$$K_{\infty}(A_1)=||A_1||_{\infty}*||A_{1}^{-1}||_{\infty} = \frac{(1+a)^{2}}{1-a^{2}}$$
+Por lo que si $|a|\approx 1$, entonces $K_{\infty}(A_1)\approx \infty$\\
+
+Ahora para la matriz $A_2$ tenemos que:
+$$A_{2}^{-1}=
+\begin{bmatrix}
+1 & -1-\epsilon\\
+\epsilon -1 & 1
+\end{bmatrix}
+$$
+por lo que tenemos que las normas infinito de las matrices serán:
+$$||A_2||_{\infty} = 2+\epsilon$$
+$$||A_{2}^{-1}||_{\infty} = \frac{1}{\epsilon}$$
+Por lo que el número de condicionamiento será:
+$$K_{\infty}(A_2)=||A_2||_{\infty}*||A_{2}^{-1}||_{\infty} = \frac{2 + \epsilon}{\epsilon}$$
+Entonces si $\epsilon \approx 0$, tendremos que $K_{\infty}(A_2) \approx \infty$
 \subsection*{Pregunta 6}
 Si dada $A \in \mathbb{R}^{n\times n}$. Muestre que si $\lambda$ es autovalor de $A^{T}A$ entonces $0\leq \lambda\leq ||A^{T}||* ||A||$.\\
 % Tomar definición de valor propio, mover normas y tomar supremo para dar la desigualdad, preguntar si no debiese ser norma en vez de lambda solo.
@@ -330,10 +356,72 @@ Dados $x^{(0)}\in \R^{n}$, $tol \in \R^+$ y $max \in \mathbb{Z}^+$
 \begin{itemize}
 \item Demuestre que si $a_i$ denota la i-ésima columna de $A$.
 $$ r^{(k+1)} = r^{(k)}-\frac{r_{i}^{(k)}}{a_{ii}}a_i$$
+
+Para demostrar esto tomamos el caso general de $r^{(k)}$, sabemos que
+$$r^{(k+1)}= b- Ax^{(k+1)}$$
+y a su vez 
+$$x^{(k+1)} = 
+\begin{bmatrix}
+x^{(k)}_{1}\\
+x^{(k)}_{2}\\
+\vdots\\
+x_{i}^{(k)}+\frac{r_{i}^{(k)}}{a_{ii}}\\
+\vdots\\
+x^{(k)}_{n}\\
+\end{bmatrix}
+$$
+Por lo que si lo reemplazamos en la ecuación anterior y escribimos la matriz $A$ como vectores $a_i$ que serán las columnas de $A$, no nos fijamos en los valores de $x_j^{(k+1)}$ ya que estos no varian al variar $k$. Entonces nos quedará:
+$$r^{(k+1)} = b -
+\begin{bmatrix}
+| & | & & | & &|\\
+a_1 & a_2& \cdots & a_i& \cdots & a_n\\
+| & | & & | & &|
+\end{bmatrix}
+*x^{(k+1)}
+$$
+si desarrollamos el producto matriz vector, nos quedará la suma de las columnas de $A$ ponderado por las componentes de $x^{(k+1)}$, ($a_i$ serán las columnas de $A$
+$$r^{(k+1)}= b-\left(a_1*x_1^{(k)}+ \cdots + \left(x_{i}^{(k)}+\frac{r_{i}^{(k)}}{a_{ii}}\right)*a_i+\cdots + a_n*x_{n}^{(k)}\right)$$
+distribuimos $a_i$
+$$r^{(k+1)}= b-\left(a_1*x_1^{(k)}+ \cdots + x_{i}^{(k)}*a_i+\frac{r_{i}^{(k)}}{a_{ii}}*a_i+\cdots + a_n*x_{n}^{(k)}\right)$$ 
+apartamos el termino de la derecha
+$$r^{(k+1)}= b-\left(a_1*x_1^{(k)}+ \cdots + x_{i}^{(k)}*a_i+\cdots + a_n*x_{n}^{(k)}\right)-\frac{r_{i}^{(k)}}{a_{ii}}*a_i$$ 
+con esto tenemos que lo que esta entre parentesis corresponde exactamente a $Ax^{(k)}$, entonces
+$$r^{(k+1)}= b- Ax^{(k)} -\frac{r_{i}^{(k)}}{a_{ii}}*a_i$$
+pero 
+$$r^{(k)}=b-Ax^{(k)}$$
+Por lo tanto 
+$$r^{(k+1)}=r^{(k)}-\frac{r_{i}^{(k)}}{a_{ii}}*a_i$$
 \item Demuestre que:
 $$||r^{(k+1)}||_1 \leq \left[1-\frac{1}{n}+ \sum_{j=1,j\neq i}^{n}\left|\frac{a_{ji}}{a_{ii}}\right| \right] ||r^{(k)}||_1 $$
-{\bf Ayuda:} $||x||_{\infty}\leq ||x||_1 \leq n||x||_{\infty}$ para todo $x\in \R^{n}$
-\item Deduzca una condición suficiente de convergencia para que la sucesión $\left\lbrace x^{(k)}\right\rbrace$ converja a la solución de $Ax = b$.
+{\bf Ayuda:} $||x||_{\infty}\leq ||x||_1 \leq n||x||_{\infty}$ para todo $x\in \R^{n}$\\
+
+Para esto tomamos el resultado anterior y aplicamos norma $1$ a ambos lados, entoces tenemos:
+$$||r^{(k+1)}||_{1} \leq ||r^{(k)}||_1 -\left|\frac{r_{i}^{(k)}}{a_{ii}}\right|*||a_i||_1$$
+luego por definición de norma $1$, obtenemos la norma $1$ de $a_i$
+$$||r^{(k+1)}||_{1} \leq ||r^{(k)}||_1 -\left|\frac{r_{i}^{(k)}}{a_{ii}}\right|*\sum_{j=1}^{n}|a_{ji}|$$
+si luego separamos el elemento de la suma cuando $j=i$ nos quedara la expresión:
+$$||r^{(k+1)}||_{1} \leq ||r^{(k)}||_1-|r_{i}^{(k)}| -\left|\frac{r_{i}^{(k)}}{a_{ii}}\right|*\sum_{j=1,j\neq i}^{n}|a_{ji}|$$
+luego, si tomamos la mayor componente de $r^{(k)}$ y cambiamos el signo de la sumatoria la desigualdad se mantiene
+$$||r^{(k+1)}||_{1} \leq ||r^{(k)}||_1-||r^{(k)}||_{\infty} +\left|\frac{r_{i}^{(k)}}{a_{ii}}\right|*\sum_{j=1,j\neq i}^{n}|a_{ji}|$$
+por ultimo si tomamos la norma $1$ de $r_{i}^{(k)}$ en vez del termino i-esimo, sigue siendo una cota superior para la norma de $r^{(k+1)}$
+$$||r^{(k+1)}||_{1} \leq ||r^{(k)}||_1-||r^{(k)}||_{\infty} +||r^{(k)}||_1*\sum_{j=1,j\neq i}^{n}\left|\frac{a_{ji}}{a_{ii}}\right|$$
+y por lo dicho en la ayuda
+$$-||x||_{\infty} \leq -\frac{||x||_1}{n}$$
+por lo tanto 
+$$||r^{(k+1)}||_{1} \leq ||r^{(k)}||_1-\frac{||r^{(k)}||_{1}}{n} +||r^{(k)}||_1*\sum_{j=1,j\neq i}^{n}\left|\frac{a_{ji}}{a_{ii}}\right|$$
+Finalmente, factorizamos y obtenemos
+$$||r^{(k+1)}||_1 \leq \left[1-\frac{1}{n}+ \sum_{j=1,j\neq i}^{n}\left|\frac{a_{ji}}{a_{ii}}\right| \right] ||r^{(k)}||_1 $$
+\item Deduzca una condición suficiente de convergencia para que la sucesión $\left\lbrace x^{(k)}\right\rbrace$ converja a la solución de $Ax = b$.\\
+
+Lo necesario para asegurar convergencia es que el factor que acompaña a la norma $1$ del residual en el paso $k$ debe ser menor estricto que $1$, de esa forma aseguramos que el residual cada vez más se acercará a $0$\\
+
+Lo que implica que 
+$$1-\frac{1}{n}+ \sum_{j=1,j\neq i}^{n}\left|\frac{a_{ji}}{a_{ii}}\right|<1 $$
+lo que es equivalente a
+$$n*\sum_{j=1,j\neq i}^{n}\left|\frac{a_{ji}}{a_{ii}}\right|<1 $$
+que se cumplirá, siempre que la norma infinito del vector $a_i$ sea menor o igual que 1, esto por la desigualdad de la ayuda que nos da la siguiente expresion:
+$$||a_i||_{\infty}\leq n*\sum_{j=1,j\neq i}^{n}\left|\frac{a_{ji}}{a_{ii}}\right|<1 $$
+también sería valido tomar que la norma infinito de la matriz $A$ sea menor que $1$, ya que de esa forma nos aseguramos que todas las columnas de $A$ cumplan con la desigualdad anterior.
 \end{itemize}
 \subsection*{Pregunta 15}
 Suponga que quiere resolver el SEL $Cz = d$ con $C\in \mathbb{C}^{m\times m}$ y $d\in \mathbb{C}^{m}$ pero usted sólo tiene rutinas que trabajan con reales. Si $C = A + iB, d = b + ic$ donde $A,B,b$ y $c$ son reales. Muestre que la solución $z = x+iy$ está dada por la solución del SEL (real):
@@ -352,18 +440,54 @@ b\\
 c
 \end{bmatrix}
 $$
-¿Cómo resolvería el SEL anterior sin armar la matriz de coeficientes de orden $m^{2}$?
+¿Cómo resolvería el SEL anterior sin armar la matriz de coeficientes de orden $m^{2}$?\\
+
+Primero mostraremos que el sistema anterior es solución del sistema con números complejos. Partimos de $Cz=d$ y reemplazamos los valores dados
+$$(A+iB)z = b + ic$$
+$$Az + iBz = b + ic$$
+Reemplazamos $z$ y nos queda
+$$A(x+iy)+iB(x+iy) = b +ic$$
+$$Ax + iAy + iBx -By = b +ic$$
+Ahora separamos la parte real de la imaginaria y tenemos
+$$Ax-By = b$$
+$$\cancel{i}(Bx +Ay) = \cancel{i}c$$
+Que es equivalente a la matriz de más arriba.\\
+
+Para la segunda parte, lo resolvería invirtiendo la matriz por bloques y ver la expresión que resuelva a $x$ y a $y$. Entonces tenemos
+$$\begin{bmatrix}
+A & -B & \vrule & 1 & 0\\
+B & A & \vrule & 0 & 1
+\end{bmatrix}
+$$
+Al escalonar la matriz nos quedara
+$$\begin{bmatrix}
+1 & 0 & \vrule & A^{-1} & (A^{-1})^{2}B\\
+0 & 1 & \vrule & -(A^{-1})^{2}B & A^{-1}
+\end{bmatrix}
+$$
+Por lo tanto la solución al sistema estaŕa dado por la expresión
+$$ x= A^{-1}b + (A^{-1})^{2}Bc$$
+$$y = -(A^{-1})^{2}Bb + A^{-1}c$$
+Con lo que se evita tener que armar la matriz completa.
 \section*{Parte Práctica}
 \subsection*{Pregunta 16}
-Escriba dos rutinas para clacular para calcular $C=AB$ con $A \in \R^{m\times n}$ y $B\in \R^{n\times p}$. La primera debe calcular cada elemento de $C$ mediante productos internos de las fila de $A$ con las columnas de $B$. La segunda debe formar cada columna de $C$ mediante combinaciones lineales de las columnas de $A$. Compare sus rutinas en su computador. Es probable que necesite usar matrices grandes antes de observar alguna diferencia importante. Trate de encontrar información sobre el sistema de su computador (cache, política de manejo de la memoria) para tratar de explicar los resultados observados.
+Escriba dos rutinas para clacular para calcular $C=AB$ con $A \in \R^{m\times n}$ y $B\in \R^{n\times p}$. La primera debe calcular cada elemento de $C$ mediante productos internos de las fila de $A$ con las columnas de $B$. La segunda debe formar cada columna de $C$ mediante combinaciones lineales de las columnas de $A$. Compare sus rutinas en su computador. Es probable que necesite usar matrices grandes antes de observar alguna diferencia importante. Trate de encontrar información sobre el sistema de su computador (cache, política de manejo de la memoria) para tratar de explicar los resultados observados.\\
+
+Programe con matrices aleatorias de Octave y obtuve un error de $0$ en para $n=100, 200$, para valores más grandes de $n$ obtuve errores cercanos a $10^{-11}$, en general el caso en que se usan las columnas de $A$, tenia un parecido mayor a lo que entregaba Octave haciendo $A*B$ directamente.\\
+
+Es probable que el hecho de tomar la columnas evita que se aproximen valores al solo sacar y operar con los elementos uno a uno de la matriz.\\
+
+No encontré información más detallada sobre mi computador.
 \subsection*{Pregunta 19}
 Repita el Ejemplo numérico de las páginas 300-301 del Libro Trefethen and Bau.
 \subsection*{Pregunta 20}
 {\bf Ejercicio didáctico para observar velocidad de convergencia de GC:} Considere las matrices $A_1$ y $A_2$ ambas simétricas positivo definidas de orden $n$ tales que los autovalores de $A_1$ están distribuidos uniformemente en $[0.95, 1.05]$ mientras que los de $A_2$ son $[100,200, 300, 400, 500]$ y los $n-5$ restantes están uniformemente distribuidos en $[0.95, 1.05]$.\\
 Constuya los vectores $b_1$ y $b_2$ tales que los sistemas $A_1x=b_1$ y $A_2y=b_2$ tengan como solución el vector de unos.\\
 \begin{itemize}
-\item Ejecute CG don diferentes valores de $n$
+\item Ejecute CG con diferentes valores de $n$
 \item Grafique el error relativo y el residual por iteración para ambos SEL.
-\item Compare y comente los resultados. Use los resultados vistos en clases para justificar sus observaciones.
+\item Compare y comente los resultados. Use los resultados vistos en clases para justificar sus observaciones.\\
+
+Por lo visto en clases sabemos que el método de gradientes conjugados es más rápido cuando la matriz tiene menos variación de sus valores propios, mientras más valores propios iguales, más rápido es el método.
 \end{itemize}
 \end{document}
