@@ -1,0 +1,29 @@
+######################
+## Distribución SEV ##
+######################
+
+## Función de Densidad ##
+dsev = function(x, location = 0, scale = 1){
+mu = location
+sigma = scale
+z = (x - mu)/sigma
+aux = exp(z-exp(z))/sigma
+aux
+}
+
+## Función de Distribución de Probabilidad Acumulada ##
+psev = function(q, location = 0, scale = 1){
+mu = location
+sigma = scale
+z = (q - mu)/sigma
+aux = 1-exp(-exp(z))
+aux
+}
+
+## Función de Distribución de Probabilidad Acumulada Inversa ##
+qsev = function(p, location = 0, scale = 1){
+mu = location
+sigma = scale
+aux = mu + sigma * log(-log(1-p))
+aux
+}

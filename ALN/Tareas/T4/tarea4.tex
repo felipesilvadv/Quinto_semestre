@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amsfonts,amssymb}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{listings}
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\usepackage{alltt}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{url}
+\usepackage{enumerate}
+\usepackage{framed}
+\usepackage{color}
+\usepackage{cancel}
+\usepackage{wrapfig}\definecolor{shadecolor}{RGB}{250,250,250}
+\usepackage{framed}
+\usepackage{epstopdf}
+\setlength\parindent{0pt}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+% Operadores matemáticos y simbolos
+\DeclareMathOperator{\dive}{div}
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\symm}{symm}
+\DeclareMathOperator{\sk}{skew}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Grad}{Grad}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\Curl}{Curl}
+\def\R{\mbox{\(\mathbb{R}\)}}
+\def\E{\mbox{\(\mathbb{E}\)}}
+\def\P{\mbox{\(\mathbb{P}\)}}
+\def\I{\mbox{\(\mathbb{I}\)}}
+\def\L{\mbox{\(\mathbb{L}\)}}
+\def\dx{\mbox{\(\,\mathrm{d}x\)}}
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2cm, bottom=3cm}
+\title{Tarea 4\\}
+\author{Luis Felipe Silva De Vidts}
+\begin{document}
+\begin{figure}
+\begin{minipage}{2.5cm}
+\includegraphics[width=0.8\textwidth]{./figures/LogoUC-BN}
+\end{minipage}
+\begin{minipage}{14.5cm}
+\vspace{4mm}
+{\sc PONTIFICIA UNIVERSIDAD CAT\'OLICA DE CHILE}\\
+Departamento de Matemáticas y Programa de Ingeniería Matemática y Computacional \\
+{\bf IMT2111 Algebra Lineal Numérica}\\
+\vspace{0mm}
+\hrulefill
+\end{minipage}
+\end{figure}
+\phantom{""}
+\vspace{-5mm}
+\normalsize
+\begin{center}
+\Huge Tarea 4\\
+\normalsize Luis Felipe Silva De Vidts
+\end{center}
+\section*{Parte Teórica}
+\subsection*{Pregunta 6}
+Deduzca el Proceso de Lanczos a partir del Proceso de Arnoldi aplicado a una matriz $A$ simétrica.
+\section*{Parte Práctica}
+\begin{enumerate}
+\item Implemente \textit{Conjugate Gradient (CG) y Conjugate Residual (CR).}\footnote{Escribo todo esto para ordenarme al hacer la tarea}\\
+Ambas para resolver $Ax=b$ con $A$ SPD.
+\begin{itemize}
+\item He leído que, dado que CR hace dos productos matriz-vector por iteración, es común preferir CG sobre CR. Me gustaría ver algunos experimentos numéricos que afirmen o refuten esa aseveración.
+\item Para que sus rutinas sean comparables en cuanto a eficiencia es necesario que ustedes realicen ambas implementaciones. Es decir, no usen librerías.
+\item Comparen en diversos escenarios: Matrices con número de condición 2 alto, matrices con autovalores \textit{cluster} bien y mal condicionadas.
+\item Es recomendable que usen matrices \textit{sparse} y $n\geq 1000$ (En general si la matrices son muy chicas no se observa nada de interés!).
+\item En las páginas 178 (Algoritmo 6.17) y 182 (Algoritmo 6.19) del libro de Y. Saad tiene los pseudos códigos de CG y CR respectivamente.
+
+\end{itemize}
+\end{enumerate}
+\subsection*{Sobre la implementación}
+Cada función debe tener el siguiente encabezado
+$$[x, flag, relres, iter, resvec] = METODO(A,b,tol,maxit,x_0)$$
+donde los parámetros de entrada son los usuales y los de salida son 
+\begin{itemize}
+\item $x$: Aproximación
+\item $flag$: variable que indica el estatus del método:\\
+$0$ indica que el método convergió con la tolerancia especificada($tol$)\\
+$1$ Alcanzó el máximo de iteraciones SIN convergencia\\
+$2$ El método se estancó
+\item $relres$: valor del residual relativo al final del proceso $\frac{||b-Ax||}{||b||}$
+\item $iter$: número de iteraciones realizadas
+\item $resvec$: vector con el residual relativo por iteración
+\end{itemize}
+\end{document}

@@ -1,4 +1,4 @@
-n = 100
+n = 10000
 A = rand(n,n);
 B = rand(n,n);
 C = zeros(n,n);
