@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.17)  9 MAY 2017 16:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.4.17)  10 MAY 2017 23:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -601,13 +601,40 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count126
+\c@ALG@rem=\count127
+\c@ALG@nested=\count128
+\ALG@tlm=\skip62
+\ALG@thistlm=\skip63
+\c@ALG@Lnr=\count129
+\c@ALG@blocknr=\count130
+\c@ALG@storecount=\count131
+\c@ALG@tmpcounter=\count132
+\ALG@tmplength=\skip64
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+\@float@every@algorithm=\toks32
+\c@algorithm=\count133
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks32
+\@enLab=\toks33
 )
 (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip62
+\OuterFrameSep=\skip65
 \fb@frw=\dimen138
 \fb@frh=\dimen139
 \FrameRule=\dimen140
@@ -627,9 +654,9 @@ Package: cancel 2013/04/12 v2.2 Cancel math terms
 (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen142
 \WF@size=\dimen143
-\c@WF@wrappedlines=\count126
+\c@WF@wrappedlines=\count134
 \WF@box=\box58
-\WF@everypar=\toks33
+\WF@everypar=\toks34
 Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf.sty
@@ -694,9 +721,9 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count127
-\Gm@cntv=\count128
-\c@Gm@tempcnt=\count129
+\Gm@cnth=\count135
+\Gm@cntv=\count136
+\c@Gm@tempcnt=\count137
 \Gm@bindingoffset=\dimen144
 \Gm@wd@mp=\dimen145
 \Gm@odd@mp=\dimen146
@@ -705,41 +732,41 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutheight=\dimen149
 \Gm@layouthoffset=\dimen150
 \Gm@layoutvoffset=\dimen151
-\Gm@dimlist=\toks34
+\Gm@dimlist=\toks35
 ) (./tarea4.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 )
 \openout1 = `tarea4.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Info: Redefining \. on input line 44.
-LaTeX Info: Redefining \% on input line 44.
-\c@lstlisting=\count130
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Info: Redefining \. on input line 50.
+LaTeX Info: Redefining \% on input line 50.
+\c@lstlisting=\count138
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count131
+\scratchcounter=\count139
 \scratchdimen=\dimen152
 \scratchbox=\box59
-\nofMPsegments=\count132
-\nofMParguments=\count133
-\everyMPshowfont=\toks35
-\MPscratchCnt=\count134
+\nofMPsegments=\count140
+\nofMParguments=\count141
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count142
 \MPscratchDim=\dimen153
-\MPnumerator=\count135
-\makeMPintoPDFobject=\count136
-\everyMPtoPDFconversion=\toks36
+\MPnumerator=\count143
+\makeMPintoPDFobject=\count144
+\everyMPtoPDFconversion=\toks37
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
@@ -785,36 +812,36 @@ Package caption Info: End \AtBeginDocument code.
 File: ./figures/LogoUC-BN.pdf Graphic file (type pdf)
 
 <use ./figures/LogoUC-BN.pdf>
-Package pdftex.def Info: ./figures/LogoUC-BN.pdf used on input line 47.
+Package pdftex.def Info: ./figures/LogoUC-BN.pdf used on input line 53.
 (pdftex.def)             Requested size: 56.90572pt x 75.01424pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 48.
+LaTeX Font Info:    Try loading font information for U+msa on input line 54.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 48.
+LaTeX Font Info:    Try loading font information for U+msb on input line 54.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (13.88782pt too wide) in paragraph at lines 46--57
+Overfull \hbox (13.88782pt too wide) in paragraph at lines 52--63
 []$[]$ $[]$ 
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./figures/LogoUC-BN.pdf>] (./tarea4.aux
+ <./figures/LogoUC-BN.pdf>] [2] (./tarea4.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 7132 strings out of 493029
- 100022 string characters out of 6136234
- 185814 words of memory out of 5000000
- 10535 multiletter control sequences out of 15000+600000
- 10903 words of font info for 42 fonts, out of 8000000 for 9000
+ 7698 strings out of 493029
+ 108198 string characters out of 6136234
+ 197298 words of memory out of 5000000
+ 11086 multiletter control sequences out of 15000+600000
+ 11601 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,8n,42p,325b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,8n,42p,325b,395s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/te
@@ -827,10 +854,10 @@ ts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type
 s/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on tarea4.pdf (1 page, 183835 bytes).
+Output written on tarea4.pdf (2 pages, 191089 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 66 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

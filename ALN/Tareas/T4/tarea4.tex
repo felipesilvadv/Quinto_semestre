@@ -11,6 +11,9 @@
 \usepackage{subfig}
 \usepackage{float}
 \usepackage{url}
+\usepackage{algorithmicx}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
 \usepackage{enumerate}
 \usepackage{framed}
 \usepackage{color}
@@ -37,6 +40,9 @@
 \def\I{\mbox{\(\mathbb{I}\)}}
 \def\L{\mbox{\(\mathbb{L}\)}}
 \def\dx{\mbox{\(\,\mathrm{d}x\)}}
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
 \usepackage{geometry}
 \geometry{left=2.5cm, right=2.5cm, top=2cm, bottom=3cm}
 \title{Tarea 4\\}
@@ -92,4 +98,26 @@ $2$ El método se estancó
 \item $iter$: número de iteraciones realizadas
 \item $resvec$: vector con el residual relativo por iteración
 \end{itemize}
+\begin{algorithm}[H]
+\caption{My algorithm}\label{euclid}
+\begin{algorithmic}[1]
+\Procedure{MyProcedure}{}
+\State $\textit{stringlen} \gets \text{length of }\textit{string}$
+\State $i \gets \textit{patlen}$
+\BState \emph{top}:
+\If {$i > \textit{stringlen}$} \Return false
+\EndIf
+\State $j \gets \textit{patlen}$
+\BState \emph{loop}:
+\If {$\textit{string}(i) = \textit{path}(j)$}
+\State $j \gets j-1$.
+\State $i \gets i-1$.
+\State \textbf{goto} \emph{loop}.
+\State \textbf{close};
+\EndIf
+\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
+\State \textbf{goto} \emph{top}.
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
 \end{document}
