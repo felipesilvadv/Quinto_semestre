@@ -49,13 +49,26 @@ lines(dnorm(x, mean = mean(X), sd = sd(X))~x, col = "green")
 g = sort(X)
 N = length(X)
 p = 1:N/(N+1)
+y = log(-log(1-p))
 par(mfrow=c(1,1))
 plot(g~qnorm(p))
-linea = mean(X) + sd(X)*qnorm(p)
 abline(lm(g~qnorm(p)), lwd = 3,col = "red")
-abline(a = a, b = b, lwd = 3, col = "blue")
+plot(g~qsev(p))
 abline(a = mu, b= sigma, lwd=3, col = "green")
-qqplot(X,qweibull(p, shape = b))
-qqplot(X,qnorm(p, mean = mean(X), sd = sd(X)))
-
+plot(g~y)
+abline(lm(g~y)$coef, lwd = 3, col = "blue")
+hist(X, freq = FALSE)
+recta = lm(g~qsev(p))$coef
+mu = recta[1]
+sigma = recta[2]
+lines(dsev(x, mu, sigma)~x, col="red", lwd = 2)
+recta = lm(g~y)$coef
+a = recta[2]+3
+b = recta[1]
+lines(dweibull(x,a,b)~x, col = "blue", lwd =2)
+#qqplot(X,qweibull(p, shape = b))
+#qqplot(X,qnorm(p, mean = mean(X), sd = sd(X)))
+#qqplot(X,qsev(p, mu, sigma))
+#abline(a = 2, b= 0.95, col="red", lwd=3)
+#abline(a = -0.69, b= 1, col="red", lwd=3)
 
