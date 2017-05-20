@@ -1,0 +1,108 @@
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/histplot_Latitud.png}
+\caption{Histograma y Boxplot de Latitud}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/cm_Latitud.png}
+\caption{Comparación con modelos de Latitud}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/histplot_Longitud.png}
+\caption{Histograma y Boxplot de Longitud}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/cm_Longitud.png}
+\caption{Comparación con modelos de Longitud}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/histplot_Magnitud.png}
+\caption{Histograma y Boxplot de Magnitud}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/cm_Magnitud.png}
+\caption{Comparación con modelos de Magnitud}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/histplot_Profundidad.png}
+\caption{Histograma y Boxplot de Profundidad}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/cm_Profundidad.png}
+\caption{Comparación con modelos de Profundidad}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/histplot_Radiacion.png}
+\caption{Histograma y Boxplot de Radiacion}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/cm_Radiacion.png}
+\caption{Comparación con modelos de Radiacion}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/histplot_Presion.png}
+\caption{Histograma y Boxplot de Presion}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/cm_Presion.png}
+\caption{Comparación con modelos de Presion}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/histplot_Humedad.png}
+\caption{Histograma y Boxplot de Humedad}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/cm_Humedad.png}
+\caption{Comparación con modelos de Humedad}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/histplot_Temperatura.png}
+\caption{Histograma y Boxplot de Temperatura}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/cm_Temperatura.png}
+\caption{Comparación con modelos de Temperatura}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/histplot_Velocidad.png}
+\caption{Histograma y Boxplot de Velocidad}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./figures/cm_Velocidad.png}
+\caption{Comparación con modelos de Velocidad}
+\end{figure}
+
