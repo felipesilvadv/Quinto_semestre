@@ -1,7 +1,8 @@
 \documentclass[letter]{article}
 
 \usepackage{MD_estilo}
-
+\usepackage{url}
+\usepackage{hyperref}
 \nombre{Luis Felipe Silva De Vidts} % Aqui va el nombre del alumno
 \numtarea{5} % Aqui va el número de la tarea
 
@@ -12,8 +13,22 @@
 		\section*{Pregunta 1}
 		Sean $f(n)$ y $g(n)$  dos funciones de $\mathbb{N}$ a $\mathbb{R}^{+}$. Demuestre o refute las siguientes afirmaciones:
 		\begin{enumerate}
-		\item $f(n) \not \in \mathcal{O}(g(n)) $, entonces $g(n)\in \mathcal{O}(f(n))$.
-		\item $f(n)\in \mathcal{O}(g(n))$, entonces $2^{f(n)}\in \mathcal{O}(2^{g(n)})$.
+		\item $f(n) \not \in \mathcal{O}(g(n)) $, entonces $g(n)\in \mathcal{O}(f(n))$.\\
+		
+		Lo primero es equivalente a que no existe un $c$ tal que 
+		$$f(n)\leq c*g(n)\hspace*{5mm} \forall n\geq n_0$$
+		lo que implica que existe un $c$ tal que 
+		$$f(n) > c*g(n) \hspace*{5mm}\forall n\geq n_0$$
+		entonces
+		$$\exists c.\hspace*{2mm} \frac{1}{c}f(n) > g(n)\hspace*{5mm} \forall n\geq n_0$$
+		que implica que $g(n)\in \mathcal{O}(f(n))$, por lo tanto la afirmacion es verdadera.
+		\item $f(n)\in \mathcal{O}(g(n))$, entonces $2^{f(n)}\in \mathcal{O}(2^{g(n)})$.\\
+		
+		De lo primero tenemos que (Estaba en esa página \url{https://es.wikipedia.org/wiki/An\%C3\%A1lisis_asint\%C3\%B3tico})
+		$$f(n)\in \mathcal{O}(g(n))\Leftrightarrow f(n)-g(n) =o(g(n))$$
+		Entonces si tomamos el límite de los argumentos de la derecha tendremos
+		$$\lim_{n\rightarrow \infty}\frac{2^{f(n)}}{2^{g(n)}}=\lim_{n\rightarrow \infty}2^{f(n)-g(n)}=2^{o(g(n))}$$
+		lo que nos da una constante, por lo que $2^{f(n)}\in \mathcal{O}(2^{g(n)})$
 		\end{enumerate}
 		
 	\end{pregunta}
@@ -22,8 +37,16 @@
 		\section*{Pregunta 2}
 		Demuestre formalmente (usando la definición formal de la notación $\mathcal{O}$) que:
 		\begin{enumerate}
-		\item $(\log(n))^{k}\in \mathcal{O}(n^{\epsilon})$ para $k\geq 1$ y $\epsilon >0$
-		\item $\sum_{i=1}^{n}n^{i} \in \mathcal{O}(2^{n*\log(n)})$
+		\item $(\log_{2}(n))^{k}\in \mathcal{O}(n^{\epsilon})$ para $k\geq 1$ y $\epsilon >0$\\
+		
+		Notamos que para el caso $\epsilon \geq 1$ tenemos que 
+		$$\log_{2}(n)\leq n \Leftrightarrow (\log_{2}(n))^{k}\leq n^{k}= n^{\epsilon}$$
+		Mientras que para el caso en que $0<\epsilon<1$
+		$$(\log_{2}(n))^{k}\leq n^{\epsilon}*\max_{n>n_0}|(\log_{2}(n))^{k}-n^{\epsilon}|$$
+		Donde $n_0$ es el valor de $n$ que hace que las funciones dadas se igualen. Ese máximo representa la distancia que hay entre $n^{\epsilon}$ y la funcion logaritmica dada.
+		Este valor es distinto de infinito ya que las funciones tienen un crecimiento similar.
+		\item $\sum_{i=1}^{n}n^{i} \in \mathcal{O}(2^{n*\log_{2}(n)})$
+		
 		\end{enumerate}
 		
 	\end{pregunta}
