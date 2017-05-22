@@ -1,0 +1,39 @@
+\documentclass[letter]{article}
+
+\usepackage{MD_estilo}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\nombre{Luis Felipe Silva De Vidts} % Aqui va el nombre del alumno
+\numtarea{6} % Aqui va el número de la tarea
+
+
+\begin{document}
+
+	\begin{pregunta}{1} % Aqui se coloca el número de la pregunta
+		Sea $\Sigma= \{a,b\}$ un alfabeto y $\Sigma^{*}$ todas las palabras finitas sobre $\Sigma$. Para una letra $x\in \Sigma$ y $w\in \Sigma^{*}$ se define $|w|_{x}$ como el número de $x$ en $w$. Por último, se define el conjunto $R$ inductivamente como el menor conjunto de palabras en $\Sigma^{*}$ que satisface las siguientes propiedades:
+		\begin{itemize}
+		\item $\epsilon \in R$
+		\item si $w\in R$, entonces $a\cdot w \cdot b \in R$.
+		\item si $u, v\in R$, entonces $u\cdot v\in R$.
+		\end{itemize}
+		\section*{Pregunta 1}
+		\begin{enumerate}
+		\item Demuestre por inducción sobre $R$ que para toda palabra $w\in R$ se tiene que:
+		\begin{equation}\label{eq1}
+		|w|_{a} = |w|_{b}
+		\end{equation}
+		\item Demuestre por inducción sobre $R$ que para toda palabra $w\in R$ se tiene que:
+		\begin{equation}\label{eq2}	
+		\textup{si } u \textup{ es un prefijo de } w\textup{, entonces }|u|_{a}\geq |u|_{b}.
+		\end{equation}
+		\end{enumerate}
+		
+	\end{pregunta}
+	
+	\begin{pregunta}{2}
+		\section*{Pregunta 2}
+		Demuestre por inducción sobre el largo de $w\in \Sigma^{*}$, que si $w$ satisface \eqref{eq1} y \eqref{eq2}, entonces $w\in R$.
+		
+	\end{pregunta}
+
+\end{document}
