@@ -3,6 +3,7 @@
 \usepackage{amsmath, amsthm, amsfonts,amssymb}
 \usepackage[spanish]{babel}
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage{listings}
 \lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
 \usepackage{alltt}
@@ -70,7 +71,9 @@ Departamento de Matemáticas y Programa de Ingeniería Matemática y Computacion
 \end{center}
 \section*{Parte Teórica}
 \subsection*{Pregunta 6}
-Deduzca el Proceso de Lanczos a partir del Proceso de Arnoldi aplicado a una matriz $A$ simétrica.
+Deduzca el Proceso de Lanczos a partir del Proceso de Arnoldi aplicado a una matriz $A$ simétrica.\\
+
+Como Arnoldi genera una matriz Hessenberg superior a partir de $A$, en el caso de que esta sea simétrica, cuando se aplica el algoritmo, las misma transformaciones que ocurren sobre las columnas son equivalentes en sus filas, por lo que se forma una matriz tridiagonal, que es lo mismo que realiza Lanczos.
 \section*{Parte Práctica}
 \begin{enumerate}
 \item Implemente \textit{Conjugate Gradient (CG) y Conjugate Residual (CR).}\footnote{Escribo todo esto para ordenarme al hacer la tarea}\\
@@ -98,26 +101,30 @@ $2$ El método se estancó
 \item $iter$: número de iteraciones realizadas
 \item $resvec$: vector con el residual relativo por iteración
 \end{itemize}
-\begin{algorithm}[H]
-\caption{My algorithm}\label{euclid}
-\begin{algorithmic}[1]
-\Procedure{MyProcedure}{}
-\State $\textit{stringlen} \gets \text{length of }\textit{string}$
-\State $i \gets \textit{patlen}$
-\BState \emph{top}:
-\If {$i > \textit{stringlen}$} \Return false
-\EndIf
-\State $j \gets \textit{patlen}$
-\BState \emph{loop}:
-\If {$\textit{string}(i) = \textit{path}(j)$}
-\State $j \gets j-1$.
-\State $i \gets i-1$.
-\State \textbf{goto} \emph{loop}.
-\State \textbf{close};
-\EndIf
-\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
-\State \textbf{goto} \emph{top}.
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
+Al correr los algoritmos, use matrices muy densas de $n=2000$, tolerancia de $1*10^{-15}$ y $maxiter =n$, dentro de la implementación determine que el algoritmo retornará $flag = 2$ en el caso en que lo que disminuia el error fuese menor que el nivel de tolerancia dado, lo que no significa que el método no convergío, sino que está avanzando muy lento o se quedo realmente estancado.\\
+\begin{figure}[h!]
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Caso &Método & $flag$ & Iter & $\frac{||b-A\tilde{x}||}{||b||}$\\
+\hline
+\multirow{2}{4cm}{A random \\$K_2(A)=$868.24}&Conjugate Gradient & $0$ & $276$ &  2.0874e-17\\
+\cline{2-5}
+& Conjugate Residual & $2$&$271$ & 3.7720e-17\\
+\hline
+\multirow{2}{4cm}{A random $K_2(A)=$8.2e+09}&Conjugate Gradient & $0$&$438$ & 1.8809e-17\\
+\cline{2-5}
+& Conjugate Residual & $2$&$405$ &1.1249e-15\\
+\hline
+\multirow{2}{4cm}{A autovalores cluster $K_2(A)=$1.0e+06}&Conjugate Gradient & $0$&$16$ & 1.4232e-18\\
+\cline{2-5}
+& Conjugate Residual & $0$&$16$ &1.1207e-18 \\
+\hline
+\multirow{2}{4cm}{A autovalores cluster $K_2(A)=$1.4}&Conjugate Gradient &$0$ &$6$ &8.8442e-18 \\
+\cline{2-5}
+& Conjugate Residual & $0$&$6$ & 9.1642e-18\\
+\hline
+\end{tabular}
+\end{figure}
+
+En general notamos que los algoritmos se comportan de la misma manera en todos los casos, con pequeñas variaciones de cantidad de iteraciones y de errores relativos, sin embargo Conjugate Residuals realiza el doble de operaciones matriz vector por iteracion que Conjugate Gradients, lo que hace más conveniente usar Conjugate Gradients que Conjugate Residuals, ya que esa cantidad de operaciones extra no da una mejor solución, ni lo hace de forma más rápida.
 \end{document}

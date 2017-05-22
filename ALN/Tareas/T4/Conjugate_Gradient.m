@@ -1,14 +1,5 @@
 % Metodo de gradientes conjugados
-n = 2000;
-B = rand(n,n);
-[Q, R] =qr(B);
-%Q = sparse(Q);
-d = 1:1:n;
-A = Q'*diag(d)*Q;
-b = ones(n,1);
-x0 = ones(n,1);
-tol = 1e-15;
-maxit = n;
+n=2000;
 %tol = 0;
 function [x, flag, relres, iter, resvec] = CG(A, b, tol, maxit,x0)
   x = x0;
