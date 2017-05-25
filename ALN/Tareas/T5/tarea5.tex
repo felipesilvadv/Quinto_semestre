@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amsfonts,amssymb}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{listings}
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\usepackage{alltt}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{url}
+\usepackage{algorithmicx}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{enumerate}
+\usepackage{framed}
+\usepackage{color}
+\usepackage{cancel}
+\usepackage{wrapfig}\definecolor{shadecolor}{RGB}{250,250,250}
+\usepackage{framed}
+\usepackage{epstopdf}
+\setlength\parindent{0pt}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+% Operadores matemáticos y simbolos
+\DeclareMathOperator{\dive}{div}
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\symm}{symm}
+\DeclareMathOperator{\sk}{skew}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Grad}{Grad}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\Curl}{Curl}
+\def\R{\mbox{\(\mathbb{R}\)}}
+\def\E{\mbox{\(\mathbb{E}\)}}
+\def\P{\mbox{\(\mathbb{P}\)}}
+\def\I{\mbox{\(\mathbb{I}\)}}
+\def\L{\mbox{\(\mathbb{L}\)}}
+\def\dx{\mbox{\(\,\mathrm{d}x\)}}
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2cm, bottom=3cm}
+\title{Tarea 5\\}
+\author{Luis Felipe Silva De Vidts}
+\begin{document}
+\begin{figure}
+\begin{minipage}{2.5cm}
+\includegraphics[width=0.8\textwidth]{./figures/LogoUC-BN}
+\end{minipage}
+\begin{minipage}{14.5cm}
+\vspace{4mm}
+{\sc PONTIFICIA UNIVERSIDAD CAT\'OLICA DE CHILE}\\
+Departamento de Matemáticas y Programa de Ingeniería Matemática y Computacional \\
+{\bf IMT2111 Algebra Lineal Numérica}\\
+\vspace{0mm}
+\hrulefill
+\end{minipage}
+\end{figure}
+\phantom{""}
+\vspace{-5mm}
+\normalsize
+\begin{center}
+\Huge Tarea 5\\
+\normalsize Luis Felipe Silva De Vidts
+\end{center}
+\section*{Parte Práctica}
+\begin{enumerate}
+\item Elija tres matrices $sparse$ de $MatrixMarket$\\
+(\url{http://math.nist.gov/MatrixMarket/index.html}) para realizar comparaciones entre los distintos métodos iterativos: Una simétrica, otra SPD y otra general. Traten de tomar un $n\geq 5000$ para poder observar variaciones en el tiempo de ejecución de los métodos iterativos.
+\item Para cada matriz $A$ del ítem anterior deben resolver el SEL $Ax_{*}=b$ donde $x_{*} = ones(n,1)$, mediante DOS métodos de proyección (Krylov). {\bf La elección de los métodos deben justificarla.}
+\item Compare los métodos elegidos con y sin precondicionamiento (factorización incompletas). Realice el precondicionamiento con y sin reordenamiento previo. Así mismo, varíe los parámetros a la hora de usar las rutinas de factorización incompleta: $type$, $droptol$, $milu$ y $thresh$. {\bf Como mínimo deben variar el parámetro $type$ con $no-fill$ y $ilutp$}. En esta página \url{https://www.mathworks.com/help/matlab/ref/ilu.html} están los detalles de los parámetros de las factorizaciones incompletas.
+\item NO entren en pánico! El modelo de Cuadro 1 les ayudará a organizar los resultados.\\
+En ese cuadro cada Caso indica los parámetros usados para realizar la factorización incompleta. {\bf Deben reportar como mínimo 2 casos diferentes}, aparte de la $IFac(0)$.
+\item Agreguen gráficas que consideren. Es obvio que deben aparecer gráficas de patrones de $esparcidad$ de las matrices (Similares a las que use en la redacción de la tarea) así como también las gráficas del residual (similares a las que he usado en clases).
+\item EL Cuadro es un MODELO: lo pueden ajustar si lo consideran necesario.
+\begin{table}[H]
+
+\centering
+METODO UNO ELEGIDO
+\begin{tabular}{|c||c||c|c|c||c|c|c|}
+\hline
+& \multirow{2}{*}{Sin  Prec.} &
+
+\multicolumn{6}{|c|}{Con Precondicionamiento} \\
+
+\cline{3-8}
+
+& & \multicolumn{3}{|c||}{Sin Prepordenamiento} &
+
+\multicolumn{3}{c|}{Con Prepordenamiento} \\
+
+\cline{3-8}
+
+& & $IFac(0)$ & Caso 2 & Caso 3 &
+
+$IFac(0)$ & Caso 2 & Caso 3 \\ \hline \hline
+
+Iter & & & & & & & \\
+
+$\|b-A\widetilde{x}\|$ & & & & & & & \\
+
+Otro 1 & & & & & & & \\
+
+Otro 2 & & & & & & & \\
+
+CPU Orden & * & * & * & * & & & \\
+
+CPU IFac & & & & & & & \\
+
+CPU Método & & & & & & & \\ 
+\hline
+
+\end{tabular} \\
+
+\caption{Resultados para $A$ xxxx con el mtodo yyyy}
+
+\label{tab:T1}
+
+\end{table}
+Donde:
+\begin{itemize}
+\item $IFac(0)$: Corresponde a la factorización incompleta de $A$ sin relleno.
+\item {\bf Caso 2:} Aquí describen los parámetros usados para el Caso 1
+\item {\bf Caso 3:} Aquí describen los parámtros usados para el Caso 2
+\item y así sucesivamente describen los parámetros usados en cada caso.
+\end{itemize}
+Siempre Reporten el tiempo que se requiere para hacer la factorización incompleta (CPU IFac). En las opciones que usen ordenamiento midan el tiempo de CPU que se requiere para hacer dicho ordenamiento (CPU Orden). Finalmente indiquen el tiempo de CPU que emplea el método iterativo para generar la aproximación (CPU Método).\\
+Deben usar matrices grandes para poder ver diferencias en el tiempo de CPU.
+\end{enumerate}
+\end{document}
