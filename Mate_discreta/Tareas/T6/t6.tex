@@ -22,18 +22,47 @@
 		\begin{equation}\label{eq1}
 		|w|_{a} = |w|_{b}
 		\end{equation}
+		Primero tenemos que $\epsilon\in R$ cumple con el enunciado anterior ya que 
+		$$|\epsilon|_a = |\epsilon|_b = 0$$
+		ahora suponemos que para un cierto $w$ de largo $2n$ se cumple que $|w|_a=|w|_b=n$, luego tenemos que 
+		$$a\cdot w \cdot b \in R $$
+		y se cumple que ($a\cdot w\cdot b$ de largo $2n+2$)
+		$$|a\cdot w\cdot b|_a=|a\cdot w\cdot b|_b=n+1$$
+		Por lo tanto todo $w\in R$ de largo $2n$ tendrá $n$ veces la letra $a$ y $n$ veces la letra $b$, o sea
+		$$|w|_a=|w|_b\hspace*{2mm} \forall n\in \mathbb{N}$$
+		Y todo $w$ toma largos pares por como se construye, solo se agregan letras o palabras de a pares.
 		\item Demuestre por inducción sobre $R$ que para toda palabra $w\in R$ se tiene que:
 		\begin{equation}\label{eq2}	
 		\textup{si } u \textup{ es un prefijo de } w\textup{, entonces }|u|_{a}\geq |u|_{b}.
 		\end{equation}
+		
+		Primero tenemos que si $u$ es prefijo de $\epsilon$, entonces $u=\epsilon$, por lo tanto se cumple para $\epsilon$ que 
+		$$0=|u|_a\geq |u|_b=0$$ 
+		donde $u$ es prefijo de $\epsilon$\\
+		
+		Ahora bien si tomamos un $w\in R$ tal que $u$ es prefijo de $w$ y que cumpla con:
+		$$ |u|_a\geq |u|_b$$
+		 entonces podemos escribir $w$ de la forma $w=u\cdot v$ y tendremos que 
+		 $$ a\cdot u\cdot v \cdot b\in R$$
+		 y esa palabra tiene como prefijo a $a\cdot u$ y como se cumple la desigualdad anterior,tendremos que 
+		 $$ |a\cdot u|_a\geq |a\cdot u|_b$$
+		 Por lo tanto para toda palabra $w$ perteneciente a $R$ cualquier prefijo $u$ que se tome de la palabra cumplirá con la desigualdad
+		 $$ |u|_a\geq |u|_b$$
 		\end{enumerate}
 		
 	\end{pregunta}
 	
 	\begin{pregunta}{2}
 		\section*{Pregunta 2}
-		Demuestre por inducción sobre el largo de $w\in \Sigma^{*}$, que si $w$ satisface \eqref{eq1} y \eqref{eq2}, entonces $w\in R$.
+		Demuestre por inducción sobre el largo de $w\in \Sigma^{*}$, que si $w$ satisface \eqref{eq1} y \eqref{eq2}, entonces $w\in R$.\\
 		
+		Es claro que si $w=\epsilon$, $w\in R$, por como se define el conjunto $R$, y también se cumple que $\epsilon$ satisface \eqref{eq1} y \eqref{eq2}, por lo visto en la pregunta anterior. Ahora si tomamos un $w\in R$ tal que $|w| = 2n$ (donde $|\cdot|$ es la cantidad de letras de la palabra) y $|w|_a = |w|_b=n$, entonces tenemos
+		$$w':=a\cdot w\cdot b \in R $$
+		tenemos que $|w'|=2n+2$ y que $|w'|_a=|w'|_b = n+1$, también tenemos que
+		$$w\cdot w \in R$$
+		por lo que también se cumple
+		$$w'\cdot w' \in R$$
+		Por lo tanto dado un $w$ cuyo largo en $a$ y $b$ sea igual a $n$, siempre podemos construir un $w'$ tal que tenga largo $n+1$ en $a$ y en $b$ y que pertenezca al $R$.	
 	\end{pregunta}
 
 \end{document}
