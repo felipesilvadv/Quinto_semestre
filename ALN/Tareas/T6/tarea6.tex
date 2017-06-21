@@ -1,0 +1,368 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amsfonts,amssymb}
+\usepackage[spanish]{babel}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{listings}
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\usepackage{alltt}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{url}
+\usepackage{algorithmicx}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{enumerate}
+\usepackage{framed}
+\usepackage{color}
+\usepackage{cancel}
+\usepackage{wrapfig}\definecolor{shadecolor}{RGB}{250,250,250}
+\usepackage{framed}
+\usepackage{epstopdf}
+\setlength\parindent{0pt}
+\usepackage{listings}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+% Operadores matemáticos y simbolos
+\DeclareMathOperator{\dive}{div}
+\DeclareMathOperator{\trace}{trace}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\symm}{symm}
+\DeclareMathOperator{\sk}{skew}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\Grad}{Grad}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\Curl}{Curl}
+\def\R{\mbox{\(\mathbb{R}\)}}
+\def\E{\mbox{\(\mathbb{E}\)}}
+\def\P{\mbox{\(\mathbb{P}\)}}
+\def\I{\mbox{\(\mathbb{I}\)}}
+\def\L{\mbox{\(\mathbb{L}\)}}
+\def\dx{\mbox{\(\,\mathrm{d}x\)}}
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2cm, bottom=3cm}
+\title{Tarea 6\\}
+\author{Luis Felipe Silva De Vidts}
+\begin{document}
+\tracingall
+\begin{figure}
+\begin{minipage}{2.5cm}
+\includegraphics[width=0.8\textwidth]{./figures/LogoUC-BN}
+\end{minipage}
+\begin{minipage}{14.5cm}
+\vspace{4mm}
+{\sc PONTIFICIA UNIVERSIDAD CAT\'OLICA DE CHILE}\\
+Departamento de Matemáticas y Programa de Ingeniería Matemática y Computacional \
+{\bf IMT2111 Algebra Lineal Numérica}\\
+\vspace{0mm}
+\hrulefill
+\end{minipage}
+\end{figure}
+\phantom{""}
+\vspace{-5mm}
+\normalsize
+\begin{center}
+\Huge Tarea 6\\
+\normalsize Luis Felipe Silva De Vidts
+\end{center}
+\section*{Parte Teórica}
+\begin{itemize}
+\item Demuestre que $A$ es diagonalizable si y solo si $A$ es no defectiva. Y además la diagonalización es unitaria si, y solo si $A$ es normal, es decir:
+$$A^{*}A = AA^{*} $$
+\((\Rightarrow)\)
+$A$ es diagonalizable, entonces $A$ es no defectiva.\\
+Si $A$ es diagonalizable, entonces quiere decir que se puede escribir como el producto 
+\[A = PDP^{-1}\]
+donde $P$ es la matriz cuyas columnas son los vectores propios de $A$ y $D$ es una matriz diagonal con los valores propios ordenados, de acuerdo a los vectores propios en $P$, notamos que para que exista esta forma de escribir la matriz $A$ es necesario que la matriz $P$ sea invertible (de $n\times n$), lo que significa que todas las columnas de $P$ son li entre ellas.\\
+
+En otras palabras todos los vectores propios son li y deben ser $n$ vectores diferentes, por lo tanto cada valor propio debe tener multiplicidad geométrica igual a la algebráica, ya que la algebráica es la cantidad de veces que aparecerá el valor propio en la matriz diagonal y la geométrica la cantidad de vectores propios li que forman el espacio asociado a ese valor propio, que serán columnas de la matriz $P$.\\
+Lo que significa que la matriz $A$ es no defectiva.\\
+
+\((\Leftarrow)\hspace*{1mm} A\) es no defectiva, entonces $A$ es diagonalizable.\\
+
+Si $A$ es no defectiva significa que cada valor propio tiene multiplicidad geométrica igual a la algébraica, lo que significa que los vectores propios son una base del espacio, ya que la matriz tiene $n$ valores propios, como todos los valores propios pueden ser asignados a un vector propio li entre ellos, se tienen $n$ vectores propios, esto es independiente a si los valores propios son iguales entre ellos, ya que de ser así como todos tienen multiplicidad geométrica igual a algébraica, entonces si un valor propio se repite $k$ veces, entonces habrán $k$ vectores propios li asociados a ese valor propio.\\
+
+Si la matriz $A$ la multiplicamos por una matriz $P$ que tiene por columnas los vectores propios de la matriz $A$, entonces el producto será igual a:
+\[AP = PD\]
+donde $D$ es una matriz diagonal de valores propios, donde el valor propio que aparece en la coordenada $(i,i)$ es el que se corresponde con el vector propio en la columna $i$ de la matriz $P$ al hacer la multiplicación matricial.\\
+
+Ahora como la matriz $A$ es no defectiva, entonces la matriz $P$ es de rango completo, todas sus columnas son li entre ellas, ya que son $n$ vectores propios li de la matriz $A$, entonces es invertible, por lo que podemos escribir $A$ como 
+\[A = PDP^{-1}\]
+lo que significa que $A$ es diagonalizable.\\
+
+Ahora para demostrar que la diagonalización es unitaria vemos:\\
+
+\((\Leftarrow)\)
+$A$ es normal, entonces la diagonalización es unitaria.
+
+\item {\bf Contexto: } sabemos que los métodos para el cálculo de autovalores tienen dos etapas. La primera consiste en hacer la reducción Hessengberg de $A$, es decir, hallar una cierta matriz $Q$ tal que $Q^{T}AQ=H$ donde $H$ es una matriz de Hessenberg. La segunda etapa consiste en un proceso iterativo cuyo cometido es hallar los autovalores de $H$ (que son los mismos de $A$ pues $H$ es una transformacion de similaridad de $A$). Ahora, considere el problema de hallar $x\in \mathbb{C}^{n}$ no nulo y $\lambda \in \mathbb{C}^{n}$ tal que 
+$$ Ax = \lambda Bx$$ 
+donde $A$ y $B$ son matrices cuadradas de orden $n$ dadas.\\
+En este caso, $\lambda$ es raíz de la ecuación característica $\det(A-\lambda B)=0$.\\
+
+La matriz $A-\lambda B$ se denomina pencil y se denota por $(A, B)$.\\
+
+{\bf Pregunta: } Describa un proceso que permita hallar matrices ortogonales $Q$ y $Z$ tales que 
+$$Q^{T}AZ=H_{A}$$
+$$Q^{T}BZ = T_{B}$$
+donde $H_{A}$ es una matriz de Hessenberg y $T_{B}$ es triangular superior.\footnote{proceso que usted encontrará constituye la etapa 1 de cualquier método iterativo para el cáculo de autovalores generalizados.}.
+Demuestre que si $\lambda$ es autovalor generalizado del pencil $(A, B)$, también lo es de $(H_{A}, T_{B})$.\\
+Si $x$ es autovector generalizado asociado a $\lambda$ para $(A,B)$, ¿Cuál es el autovector generalizado asociado a $\lambda$ para el pencil $(H_{A}, T_{B})$?
+\end{itemize}
+\section*{Parte Práctica}
+\begin{itemize}
+\item {\bf Estabilidad Numérica de Iteración Inversa: }(siguiendo la notación de las láminas): ¿Por qué el mal condicionamiento de $(A-\mu I)$ es una característica agradable en el método de Iteración Inversa? Diseñe experimentos numéricos que sirvan para sustentar su respuesta.\\
+
+Ya que si esa matriz está mal condicionada, significa que $\mu$ es una buena aproximación a un valor propio, mientras más mal condicionada, más cerca de un valor propio se encuentra $\mu$, por otro lado la velocidad del método está dado por el cuociente (siguiendo la notación de las clases):
+\[\frac{(\lambda_{m}-\mu)}{(\lambda_{J}-\mu)}\]
+entonces si la matriz $(A-\mu I)$ es no invertible quiere decir que $\mu$ es valor propio de $A$ y el cuociente anterior es igual a $0$ a menos que la matriz tenga ese valor propio repetido, en dicho caso el método se estancará, pero dentro de los supuestos del método considerabamos que solo existía un valor propio que es cercano $\mu$.\\
+
+Aunque todo lo anterior es cierto, la principal razón de porque es conveniente que la matriz este mal condicionada, es porque si en algún paso del cálculo, obtenemos que $q\approx 0$, si la matriz $(A-\mu I)$ está bien condicionada, el siguiente $z$ será $0$ ya que $(A-\mu I)$ será invertible, y al calcular el siguiente $q$, este será $NaN$ ya que se esta dividiendo por $0$ (al sacar la norma de $z$), lo que no nos entrega ningun resultado. Mientras que si la matriz esta mal condicionada, entonces el sistema $(A-\mu I)z = q$ si $q = 0$, entonces $z$ puede ser distinto de $0$, y mientras más mal condicionada este la matriz más soluciones posibles de $z$ habrá que sean distintas de $0$.
+Usando esta matriz
+\[ A = 
+\begin{bmatrix}
+   19.45047  & -1.02708 &  -6.10958 &  -2.24890  & -2.16083\\
+   -1.02708  & 13.09772  & -1.03181  &  2.27251  & -5.94695\\
+   -6.10958 &  -1.03181  & 18.00113  & -0.78692  & -2.21050\\
+   -2.24890  &  2.27251  & -0.78692  & 12.23982  & -2.42400\\
+   -2.16083  & -5.94695  & -2.21050  & -2.42400  & 12.21086\\
+\end{bmatrix}\]
+luego definí dos matrices de shift inverso de la siguiente forma:
+$$\lambda = eig(A);$$
+$$algo = \lambda(5);$$
+$$\lambda = algo + 0.1;$$
+$$B = A - \lambda * eye(n);$$  
+$$C = A - (\lambda + 100) *eye(n);$$
+En el caso de usar $B$ obtuve una aproximación de un valor propio con un error de $2.7296e-16$ y un iter de $7$, notamos que el condicionamiento de $B$ era de $151$.\\ Mientras que en el caso de $C$ obtuve $NaN$ como resultado y se alcanzo el maxiter de $100000$, donde teniamos un condicionamiento de $1.21$.
+\item Problema 7 (Capítulo 8) del libro B. Datta (página 488)
+\begin{enumerate}[(a)]
+\item Using MATLAB command $[V,D] = eig(A)$, find the eigenvalues and the matrix of right eigenvectors. Then find the matrix of left eigenvectors W as shown in Section 8.7.2.
+\item Compute $s_{i} = w^{T}_{i}v_{i}$, $i = 1, \ldots, n$ where $w_i$ and $v_i$ are the $i$th columns of $W$ and $V$.
+\item Compute $c_{i} = $ the condition number of the $i$th eigenvalue $= \frac{1}{s_{i}}$, $i = 1,2,\ldots, n$.
+\item Perturb the $(n,1)$th entry of $A$ by $\epsilon = 10^{-5}, 10^{-7}, 10^{-10}$. Then compute the eigenvalues $\tilde{\lambda_i}$, $i = 1, \ldots, n$ of the perturbed matrix using the MATLAB command eig.
+\item Make a table of the following form each matrix. Also plot $|\lambda_{i}-\tilde{\lambda_{i}}|$, $|\tilde{\lambda_{i}}|$, $i = 1, \ldots, n$ for each perturbation.\\
+Estas son las tablas que obtuve para los casos de las matrices de Wilkinson, normal y traspuestas, perturbados en ambos casos.
+\begin{figure}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c}
+$\lambda_{i}$&$\tilde{\lambda_{i}}$ &$|\lambda_{i}-\tilde{\lambda_{i}}|$ &Cond(V) &$c_i$\\
+\hline
+&&&&\\
+\hline
+&&&&\\
+\hline
+&&&&\\
+\hline
+&&&&\\
+\hline
+&&&&\\
+\hline
+&&&&\\
+\hline
+\end{tabular}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c}
+$\lambda_{i}$&$\tilde{\lambda_{i}}$ &$|\lambda_{i}-\tilde{\lambda_{i}}|$ &Cond(V) &$c_i$\\
+\hline
+1.2000e+01&1.2000e+01&1.2000e-06&2.7571e+05&Inf\\
+\hline
+1.1000e+01&1.0000e+00&1.0000e+01&2.7571e+05&Inf\\
+\hline
+1.0000e+01&2.0000e+00&8.0000e+00&2.7571e+05&Inf\\
+\hline
+9.0000e+00&2.9999e+00&6.0001e+00&2.7571e+05&Inf\\
+\hline
+8.0000e+00&4.0002e+00&3.9998e+00&2.7571e+05&Inf\\
+\hline
+7.0000e+00&4.9996e+00&2.0004e+00&2.7571e+05&Inf\\
+\hline
+6.0000e+00&6.0006e+00&5.5445e-04&2.7571e+05&7.3787e+19\\
+\hline
+5.0000e+00&6.9994e+00&1.9994e+00&2.7571e+05&-9.2234e+18\\
+\hline
+4.0000e+00&8.0004e+00&4.0004e+00&2.7571e+05&9.2234e+18\\
+\hline
+3.0000e+00&8.9998e+00&5.9998e+00&2.7571e+05&-1.4412e+17\\
+\hline
+2.0000e+00&1.0000e+01&8.0001e+00&2.7571e+05&-1.5372e+17\\
+\hline
+1.0000e+00&1.1000e+01&1.0000e+01&2.7571e+05&3.8592e+16\\
+\hline
+
+\end{tabular}
+\caption{A traspuesta perturbada en 1e-7}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c}
+$\lambda_{i}$&$\tilde{\lambda_{i}}$ &$|\lambda_{i}-\tilde{\lambda_{i}}|$ &Cond(V) &$c_i$\\
+\hline
+1.0000e+00&1.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+2.0000e+00&2.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+3.0000e+00&3.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+4.0000e+00&4.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+5.0000e+00&5.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+6.0000e+00&6.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+7.0000e+00&7.0000e+00&0.0000e+00&3.2434e+05&7.3787e+19\\
+\hline
+8.0000e+00&8.0000e+00&0.0000e+00&3.2434e+05&-9.2234e+18\\
+\hline
+9.0000e+00&9.0000e+00&0.0000e+00&3.2434e+05&9.2234e+18\\
+\hline
+1.0000e+0&11.0000e+01&0.0000e+00&3.2434e+05&-1.4412e+17\\
+\hline
+1.1000e+0&11.1000e+01&0.0000e+00&3.2434e+05&-1.5372e+17\\
+\hline
+1.2000e+0&11.2000e+01&0.0000e+00&3.2434e+05&3.8592e+16\\
+\hline
+
+\end{tabular}
+\caption{A normal perturbada en 1e-5}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c}
+$\lambda_{i}$&$\tilde{\lambda_{i}}$ &$|\lambda_{i}-\tilde{\lambda_{i}}|$ &Cond(V) &$c_i$\\
+\hline
+1.2000e+01&9.9988e-01&1.1000e+01&2.7571e+05&Inf\\
+\hline
+1.1000e+01&1.2000e+01&1.0001e+00&2.7571e+05&Inf\\
+\hline
+1.0000e+01&2.0013e+00&7.9987e+00&2.7571e+05&Inf\\
+\hline
+9.0000e+00&2.9935e+00&6.0065e+00&2.7571e+05&Inf\\
+\hline
+8.0000e+00&4.0202e+00&3.9798e+00&2.7571e+05&Inf\\
+\hline
+7.0000e+00&4.9611e+00&2.0389e+00&2.7571e+05&Inf\\
+\hline
+6.0000e+00&6.0562e+00&5.6224e-02&2.7571e+05&7.3787e+19\\
+\hline
+5.0000e+00&6.9438e+00&1.9438e+00&2.7571e+05&-9.2234e+18\\
+\hline
+4.0000e+00&8.0389e+00&4.0389e+00&2.7571e+05&9.2234e+18\\
+\hline
+3.0000e+00&8.9798e+00&5.9798e+00&2.7571e+05&-1.4412e+17\\
+\hline
+2.0000e+00&1.0007e+01&8.0065e+00&2.7571e+05&-1.5372e+17\\
+\hline
+1.0000e+00&1.0999e+01&9.9987e+00&2.7571e+05&3.8592e+16\\
+\hline
+
+\end{tabular}
+\caption{A traspuesta perturbada en 1e-5}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c}
+$\lambda_{i}$&$\tilde{\lambda_{i}}$ &$|\lambda_{i}-\tilde{\lambda_{i}}|$ &Cond(V) &$c_i$\\
+\hline
+1.0000e+00&1.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+2.0000e+00&2.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+3.0000e+00&3.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+4.0000e+00&4.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+5.0000e+00&5.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+6.0000e+00&6.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+7.0000e+00&7.0000e+00&0.0000e+00&3.2434e+05&7.3787e+19\\
+\hline
+8.0000e+00&8.0000e+00&0.0000e+00&3.2434e+05&-9.2234e+18\\
+\hline
+9.0000e+00&9.0000e+00&0.0000e+00&3.2434e+05&9.2234e+18\\
+\hline
+1.0000e+01&1.0000e+01&0.0000e+00&3.2434e+05&-1.4412e+17\\
+\hline
+1.1000e+01&1.1000e+01&0.0000e+00&3.2434e+05&-1.5372e+17\\
+\hline
+1.2000e+01&1.2000e+01&0.0000e+00&3.2434e+05&3.8592e+16\\
+\hline
+
+\end{tabular}
+\caption{A normal perturbada en 1e-10}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c}
+$\lambda_{i}$&$\tilde{\lambda_{i}}$ &$|\lambda_{i}-\tilde{\lambda_{i}}|$ &Cond(V) &$c_i$\\
+\hline
+1.0000e+00&1.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+2.0000e+00&2.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+3.0000e+00&3.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+4.0000e+00&4.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+5.0000e+00&5.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+6.0000e+00&6.0000e+00&0.0000e+00&3.2434e+05&Inf\\
+\hline
+7.0000e+00&7.0000e+00&0.0000e+00&3.2434e+05&7.3787e+19\\
+\hline
+8.0000e+00&8.0000e+00&0.0000e+00&3.2434e+05&-9.2234e+18\\
+\hline
+9.0000e+00&9.0000e+00&0.0000e+00&3.2434e+05&9.2234e+18\\
+\hline
+1.0000e+01&1.0000e+01&0.0000e+00&3.2434e+05&-1.4412e+17\\
+\hline
+1.1000e+01&1.1000e+01&0.0000e+00&3.2434e+05&-1.5372e+17\\
+\hline
+1.2000e+01&1.2000e+01&0.0000e+00&3.2434e+05&3.8592e+16\\
+\hline
+
+\end{tabular}
+\caption{A normal perturbada en 1e-7}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\begin{tabular}{c|c|c|c|c}
+$\lambda_{i}$&$\tilde{\lambda_{i}}$ &$|\lambda_{i}-\tilde{\lambda_{i}}|$ &Cond(V) &$c_i$\\
+\hline
+1.2000e+01&1.2000e+01&1.2000e-09&2.7571e+05&Inf\\
+\hline
+1.1000e+01&1.0000e+00&1.0000e+01&2.7571e+05&Inf\\
+\hline
+1.0000e+01&2.0000e+00&8.0000e+00&2.7571e+05&Inf\\
+\hline
+9.0000e+00&3.0000e+00&6.0000e+00&2.7571e+05&Inf\\
+\hline
+8.0000e+00&4.0000e+00&4.0000e+00&2.7571e+05&Inf\\
+\hline
+7.0000e+00&5.0000e+00&2.0000e+00&2.7571e+05&Inf\\
+\hline
+6.0000e+00&6.0000e+00&5.5440e-07&2.7571e+05&7.3787e+19\\
+\hline
+5.0000e+00&7.0000e+00&2.0000e+00&2.7571e+05&-9.2234e+18\\
+\hline
+4.0000e+00&8.0000e+00&4.0000e+00&2.7571e+05&9.2234e+18\\
+\hline
+3.0000e+00&9.0000e+00&6.0000e+00&2.7571e+05&-1.4412e+17\\
+\hline
+2.0000e+00&1.0000e+01&8.0000e+00&2.7571e+05&-1.5372e+17\\
+\hline
+1.0000e+00&1.1000e+01&1.0000e+01&2.7571e+05&3.8592e+16\\
+\hline
+\end{tabular}
+\caption{A traspuesta perturbada en 1e-10}
+\end{figure}
+\end{enumerate}
+\end{itemize}
+\end{document}
