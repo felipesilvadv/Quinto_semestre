@@ -1,0 +1,44 @@
+\documentclass[letter]{article}
+
+\usepackage{MD_estilo}
+
+\nombre{Luis Felipe Silva}
+\numtarea{8}
+
+
+\begin{document}
+
+	\begin{pregunta}{1}
+	
+		\section*{Pregunta 1}
+		Sea $G = (V,E)$ un grafo cualquiera. Un camino $v_0,v_1,\ldots,v_n$ en $G$ se dice $Euleriano$ si el camino recorre todas las aristas exactamente una vez, en otras palabras, si para todo $e\in E$ existe un único $i<n$ tal que $e=\{v_i, v_{i+1}\}$. Un $tour\hspace*{2mm}Euleriano$ en $G$ es un camino Euleriano en $G$ tal que $v_0=v_n$. Además, $G$ se dice $Euleriano$ si existe un tour Euleriano en $G$. Recuerde que un grafo $G$ es Euleriano si, y solo si, todo vértice en $G$ tiene grado par (usted puede usar este resultado en su respuesta).
+		\begin{enumerate}
+		\item Sea $G$ un grafo Euleriano y conexo, y sea $e$ una arista cualquiera de $G$. Demuestre que $G- e$ (el grafo que resulta de $G$ al sacar la arista $e$) es conexo.\\
+		
+		Primero como el grafo es conexo, todos los vértices están conectados, como es Euleriano, entonces existe un ciclo que recorre el grafo pasando solo una vez por cada arista, por lo que existe al menos dos caminos para llegar desde un vértice a otro, ya que basta con tomar el ciclo en una dirección o en la otra, o sea, si el grafo tiene $n-1$ vertices, entonces existe un camino
+		\[v_0, v_1, ...,v_n=v_0\]
+		donde por lo que se puede ir desde $v_0$ a $v_1$ a través de la arista $\{v_0, v_1\}$ o a través de las aristas $\{v_n, v_{n-1}\}, ..., \{v_2, v_1\}$\\
+		Entonces como existen dos caminos para llegar desde un vértice a otro y todos los vértices están conectados entre si, al quitar una arista cualquiera, sigue existiendo un camino para llegar desde un vértice arbitrario hasta cualquier otro.\footnote{Se que lo mas correcto es suponer que existe un solo camino y llegar a una contradicción, pero estoy muy corto de tiempo, y siento que esta explicación es suficiente}
+		\item Sea $G$ un grafo Euleriano y conexo, y $v$ un vértice cualquiera de $G$. Demuestre que $G-v$ (el grafo que resulta de $G$ al sacar $v$ y sus aristas incidentes) no es un grafo Euleriano.\\
+		Al quitar un vértice, y sus aristas adyacentes, también le estoy quitando aristas a los vértices vecinos, a cada vecino le quitará un vértice, como cada uno de esos vértices le quitamos una arista, este vértice pasara a tener un grado impar, por lo que al tener un grado impar, el grafo no puede ser Euleriano, por lo dicho en el enunciado.
+		\end{enumerate}
+		
+			
+	\end{pregunta}
+
+	\begin{pregunta}{2}
+	
+		\section*{Pregunta 2}
+		Sea $G=(V,E)$ un grafo cualquiera. Un match $M$ de $G$ se dice perfecto si $\cup M = V$, esto es, todo vértice en $G$ aparece en alguna arista de $M$.
+		\begin{enumerate}
+		\item Sea $G=(V,E)$ un grafo bipartito con $V = V_1\uplus V_2$ tal que $|V_1| \leq |V_2|$. Demuestre que si $\deg(u_1)\geq \deg(u_2)$ para todo $u_1\in V_1$ y $u_2 \in V_2$, entonces $G$ tiene un match completo.\\
+		Como se cumple que $\deg(u_1)\geq \deg(u_2)$ para todo $u_1 \in V_1$ y para todo $u_2\in V_2$, entonces cada vértice del conjunto $V_1$ está relacionado con una cantidad mayor de vértices de $V_2$ la relación opuesta, lo que quiere decir que para cada vértice de $V_1$ tengo más vértices "de llegada". Entonces si tomo un subconjunto $A$ de $V_1$, se cumple que $|A| \leq |N(A)|$, ya que para cada vértice de $V_1$ está relacionado con más vértices o iguales que los de $V_2$ entonces por teorema de Hall, el grafo tiene un match completo.
+		\item Decimos que $G=(V,E)$ es regular si $\deg(u) = \deg(v)$ para todo $u,v\in V$. Demuestre que si $G$ es bipartito y regular, entonces $G$ tiene un match perfecto.\\
+		Si un grafo es regular y bipartito, significa que cada vértice del grafo tiene el mismo grado que los demás, entonces en particular todos los vértices de $V_1$ tienen el mismo grado que los vértices de $V_2$, entonces la cantidad de aristas de $V_1$ serán la cantidad de vertices pertenencientes a $V_1$ por el grado que tienen cada unos de ellos, tomaremos grado $k$, de igual forma para $V_2$, entonces tendremos que la cantidad de aristas relacionadas con $V_1$ será $|V_1|*k$ y de igual manera con $|V_2|*k$, como el grafo es bipartito todas las aristas de $V_1$ llegan a $V_2$ y viceversa, por lo que las aristas entre ellos serán las mismas, entonces tendremos que 
+		$$|V_1|* k = |V_2|*k \Leftrightarrow |V_1| = |V_2|$$
+		por la pregunta anterior\footnote{Como tenemos que el $\deg(u_1)=\deg(u_2)$ para todo $u_1\in V_1$ y para todo $u_2\in V_2$, se cumple la hipotesis anterior y por tanto lo que se pedía demostrar también se cumple} tenemos que existe un match completo, pero como $|V_1| =|V_2|$ entonces existe un match perfecto.
+		\end{enumerate}
+
+	\end{pregunta}
+
+\end{document}
