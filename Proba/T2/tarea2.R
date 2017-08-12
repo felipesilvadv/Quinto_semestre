@@ -1,6 +1,7 @@
 base = read.table("TAREA2.txt", dec=",", header=TRUE)
 #base2 = read.table("TAREA2.txt", dec = ",", header = FALSE)
 #variables = base2[1,]
+setwd("/home/felipe/Escritorio/UC/Quinto_semestre/Proba/T2/")
 head(base)
 desempleo = base$DESEMPLEO
 pib = base$PIB
@@ -221,6 +222,13 @@ modelo1 = lm(imacec~tasa)
 modelo2 = lm(imacec~bcu)
 modelo3 = lm(imacec~desempleo)
 modelo4 = lm(imacec~pib)
+summary(modelo1)$adj.r.squared
+summary(modelo2)$adj.r.squared
+summary(modelo3)$adj.r.squared
+summary(modelo4)$adj.r.squared
 
-
-
+aux = as.factor(mes)
+modelo5 = lm(imacec~pib + aux)
+summary(modelo5)
+modelo6 = lm(imacec~pib + aux + bcu)
+summary(modelo6)

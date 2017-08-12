@@ -1,0 +1,96 @@
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/histplot_año.png}
+\caption{Histograma y Boxplot de año}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/cm_año.png}
+\caption{Comparación con modelos de año}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/histplot_bcu.png}
+\caption{Histograma y Boxplot de bcu}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/cm_bcu.png}
+\caption{Comparación con modelos de bcu}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/histplot_desempeño.png}
+\caption{Histograma y Boxplot de desempeño}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/cm_desempeño.png}
+\caption{Comparación con modelos de desempeño}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/histplot_imacec.png}
+\caption{Histograma y Boxplot de imacec}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/cm_imacec.png}
+\caption{Comparación con modelos de imacec}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/histplot_mes.png}
+\caption{Histograma y Boxplot de mes}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/cm_mes.png}
+\caption{Comparación con modelos de mes}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/histplot_pib.png}
+\caption{Histograma y Boxplot de pib}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/cm_pib.png}
+\caption{Comparación con modelos de pib}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/histplot_tasa.png}
+\caption{Histograma y Boxplot de tasa}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/cm_tasa.png}
+\caption{Comparación con modelos de tasa}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/histplot_tiempo.png}
+\caption{Histograma y Boxplot de tiempo}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{./plots/cm_tiempo.png}
+\caption{Comparación con modelos de tiempo}
+\end{figure}
+

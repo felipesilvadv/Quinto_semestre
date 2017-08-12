@@ -16,7 +16,10 @@
 		\item Sea $G$ un grafo Euleriano y conexo, y sea $e$ una arista cualquiera de $G$. Demuestre que $G- e$ (el grafo que resulta de $G$ al sacar la arista $e$) es conexo.\\
 		
 		Primero como el grafo es conexo, todos los vértices están conectados, como es Euleriano, entonces existe un ciclo que recorre el grafo pasando solo una vez por cada arista, por lo que existe al menos dos caminos para llegar desde un vértice a otro, ya que basta con tomar el ciclo en una dirección o en la otra, o sea, si el grafo tiene $n-1$ vertices, entonces existe un camino
-		\[v_0, v_1, ...,v_n=v_0\]
+%		\[v_0, v_1, ...,v_n=v_0\]
+	\begin{equation*}
+	v_0, v_1, ...,v_n=v_0
+	\end{equation*}
 		donde por lo que se puede ir desde $v_0$ a $v_1$ a través de la arista $\{v_0, v_1\}$ o a través de las aristas $\{v_n, v_{n-1}\}, ..., \{v_2, v_1\}$\\
 		Entonces como existen dos caminos para llegar desde un vértice a otro y todos los vértices están conectados entre si, al quitar una arista cualquiera, sigue existiendo un camino para llegar desde un vértice arbitrario hasta cualquier otro.\footnote{Se que lo mas correcto es suponer que existe un solo camino y llegar a una contradicción, pero estoy muy corto de tiempo, y siento que esta explicación es suficiente}
 		\item Sea $G$ un grafo Euleriano y conexo, y $v$ un vértice cualquiera de $G$. Demuestre que $G-v$ (el grafo que resulta de $G$ al sacar $v$ y sus aristas incidentes) no es un grafo Euleriano.\\

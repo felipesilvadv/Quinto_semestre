@@ -4,6 +4,7 @@
 n = length(A2);
 x = ones(n,1);
 b = A2*x;
+n = 100; 
 % Graficos 
 %x = 0:0.01:3;
 %hf = figure ();
@@ -64,6 +65,7 @@ clear
 n = length(A3);
 x = ones(n,1);
 b = A3*x;
+n = 100;
 [L,U] = ilu(A3);
 opts.type = "nofill";
 [l,u] = ilu(A3, opts);
@@ -111,6 +113,7 @@ clear
 n = length(A1);
 x = ones(n,1);
 b = A1*x;
+n = 100;
 [L,U] = ilu(A1);
 opts.type = "nofill";
 [l,u] = ilu(A1, opts);
