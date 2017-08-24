@@ -109,9 +109,9 @@ recta=function(x,modelo="normal"){
   }
   
 }
-histplot=function(x,outline = TRUE){
+histplot=function(x,outline = TRUE, title= "x"){
   par(mfrow=c(2,1))
-  hist(x,freq = FALSE)
+  hist(x,freq = FALSE, main =paste("Histogram of",title), xlab = title)
   lines(density(x),col="red",lwd=2)
   boxplot(x,outline = outline,horizontal = TRUE,col = "grey")
 }
